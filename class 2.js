@@ -78,9 +78,10 @@ giveGreetingBtn.addEventListener('click', function() {
     if (hours >= 0 && hours < 12) {
         greeting = `Good Morning! It is ${timeString}.`;
     } else if (hours >= 12 && hours <= 16) {
-        greeting = `Good Afternoon! It is ${timeString} or ${hours - 12 } o'clock.`;
+        greeting = `Good Afternoon! It is ${timeString}`;
+
     } else if (hours > 16 && hours <= 23) {
-        greeting = `Good Evening! It is ${timeString}. or ${hours - 12} o'clock.`;
+        greeting = `Good Evening! It is ${timeString}.`;
     } else {
         greeting = `${timeString} is not a valid time.`;
     }

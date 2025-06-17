@@ -30,6 +30,18 @@
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        main {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding-bottom: 20px;
         }
 
         .nav-link {
@@ -43,20 +55,23 @@
         }
 
         #input {
-            margin-top: 5em;
+            margin-top: 2em;
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 20px;
+            width: 90%;
+            max-width: 40em;
         }
 
         #input input {
-            width: 40em;
+            width: 100%;
             padding: 20px;
             border-radius: 10px;
             border: none;
             outline: none;
             text-align: center;
+            font-size: 1.2em;
         }
 
         #greetingOutput {
@@ -66,6 +81,8 @@
             font-weight: 700;
             color: black;
             text-align: center;
+            padding: 0 15px;
+            word-wrap: break-word;
         }
         .btn-custom {
             background-color: #213448;
@@ -76,31 +93,92 @@
             cursor: pointer;
             font-size: 1.2em;
             transition: background-color 0.3s ease;
+            width: auto;
+            min-width: 150px;
         }
 
         .btn-custom:hover {
             background-color: #4A628A;
         }
 
-        @media (max-width: 768px) {
-
-            #btn {
-                padding: 12px 24px;
-                font-size: 1rem;
+        @media (max-width: 992px) {
+            .clock {
+                font-size: 8em;
             }
-            #text {
-                font-size: 1rem;
-                margin-bottom: 20px;
-                min-height: 50px;
+            .clock2 {
+                font-size: 4em;
             }
-            #input input {
-                width: 30em;
+            #input {
+                max-width: 30em;
             }
         }
 
-        @media (max-width: 506px) {
-            #input input   {
-                width: 10em;
+        @media (max-width: 768px) {
+            .clock {
+                font-size: 6em;
+            }
+            .clock2 {
+                font-size: 3em;
+            }
+            #btn-custom {
+                padding: 12px 24px;
+                font-size: 1rem;
+            }
+            #input {
+                margin-top: 1.5em;
+                max-width: 25em;
+            }
+            #input input {
+                padding: 15px;
+                font-size: 1.1em;
+            }
+            #greetingOutput {
+                font-size: 2em;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .clock {
+                font-size: 4em;
+            }
+            .clock2 {
+                font-size: 2.5em;
+            }
+            #input {
+                margin-top: 1em;
+                max-width: 90%;
+            }
+            #input input {
+                font-size: 1em;
+                padding: 12px;
+            }
+            .btn-custom {
+                padding: 12px 20px;
+                font-size: 1em;
+                min-width: 120px;
+            }
+            #greetingOutput {
+                font-size: 1.5em;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .clock {
+                font-size: 3em;
+            }
+            .clock2 {
+                font-size: 2em;
+            }
+            #input input {
+                padding: 10px;
+            }
+            .btn-custom {
+                padding: 10px 15px;
+                font-size: 0.9em;
+                min-width: unset;
+            }
+            #greetingOutput {
+                font-size: 1.2em;
             }
         }
     </style>
