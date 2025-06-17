@@ -1,71 +1,89 @@
-// // let number = 20.322233;
-//
-// // let num2 = Math.floor(Math.round(number));
-// // let num3 = Math.ceil(number);
-//
-// // console.log(num2)
-// // console.log(num2)
-// // console.log(Math.min(2, 1, 100, 200, 30))
-//
-// let random = Math.floor(Math.random() * 100)
-// console.log(random)
-//
-// let power = Math.floor(Math.random() * 100)
-// console.log(power)
-//
-// console.log(Math.pow(random,power))
-//
-// let text = "my name is blah ajdhdj"
-// let text2 = "nj"
-//
-// console.log(text2.length)
-//
-// console.log(text2[0])
-// console.log(text2[1])
-//
-//
-// let write = "HeLLo"
-//
-// let write2 = write.toUpperCase()
-// write2 = write2.substr(1,4)
-// write3 = write2.substring(1,4)
-//
-// console.log(write2)
-// console.log(write3)
-//
-// let ex = "    hdh hbc v ndcncj cdjcid"
-// console.log(ex.trim())
-//
-// console.log(ex.includes("exr"))
-//
-// let lastchar = ex.length-1
-//
-// console.log(ex[lastchar])
-//
-//
-// console.log(ex)
-//
-// console.log(ex.replace("hdh", "hello"))
-//
-//
-//
+let displayTime = document.querySelector('.clock');
+let timeInput = document.querySelector('#timeInput');
+let giveGreetingBtn = document.querySelector('#giveGreetingBtn');
+let greetingOutput = document.querySelector('#greetingOutput');
+let text2 = document.querySelector('#currentTime2')
+const now = new Date();
+const day = now.getDay();
 
-let time = Number(prompt("what is the time in 24 hours?"))
- 
-
-if (time < 12){
-     alert(`It is ${time}o'clock good morning`);
- }
-
- else if (time >= 12 && time <= 16){
-     alert(`It is ${time}o'clock good afternoon`);
- }
-
- else if (time > 16 && time <= 24){
-     alert(`It is ${time}o'clock good evening`);
- }
- else {
-     alert(`${time} is not a time`);
- }
+switch(day){
+    case 0:
+        text2.textContent = "Today is Sunday go to church"
+        break;
+    case 1:
+        text2.textContent = "Today is Monday go to work"
+        break;
+    case 2:
+        text2.textContent = "Today is Tuesday go to work"
+        break;
+    case 3:
+        text2.textContent = "Today is Wednesday go to work"
+        break;
+    case 4:
+        text2.textContent = "Today is Thursday go to work"
+        break;
+    case 5:
+        text2.textContent = "Today is Friday go to mosque"
+        break;
+    case 6:
+        text2.textContent = "Today is Saturday let us party"
+        break;
+    default:
+        text2.textContent = `${day} is not a day`
+}
 
 
+//understand form validation from book
+//use padstart
+function updateClock() {
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    displayTime.textContent = `${hours}:${minutes}`;
+}
+
+setInterval(updateClock, 1000);
+updateClock();
+//understand indexing from oga or mr dele
+timeInput.addEventListener('input', function() {
+    let value = timeInput.value;
+
+
+    if (value.indexOf(':') > 2 || (value.indexOf(':') !== -1 && value.indexOf(':') !== 2)) {
+        value = value.replace(/:/g, '');
+    }
+
+    if (value.length === 2 && value.indexOf(':') === -1) {
+        value += ':';
+    }
+
+    if (value.length > 5) {
+        value = value.substring(0, 5);
+    }
+
+    timeInput.value = value;
+});
+
+giveGreetingBtn.addEventListener('click', function() {
+    let timeString = timeInput.value;
+    greetingOutput.textContent = '';
+
+
+//search for string methoda
+    const [hoursStr, minutesStr] = timeString.split(':');
+    const hours = parseInt(hoursStr, 10);
+    const minutes = parseInt(minutesStr, 10);
+
+    let greeting = '';
+
+    if (hours >= 0 && hours < 12) {
+        greeting = `Good Morning! It is ${timeString}.`;
+    } else if (hours >= 12 && hours <= 16) {
+        greeting = `Good Afternoon! It is ${timeString} or ${hours - 12 } o'clock.`;
+    } else if (hours > 16 && hours <= 23) {
+        greeting = `Good Evening! It is ${timeString}. or ${hours - 12} o'clock.`;
+    } else {
+        greeting = `${timeString} is not a valid time.`;
+    }
+
+    greetingOutput.textContent = greeting;
+});

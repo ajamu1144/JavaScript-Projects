@@ -13,14 +13,21 @@
 
 // });
 
+let getContainer = document.getElementById('div')
+getContainer.appendChild(ul);
+
+function addlistitem(){
+	let li = document.createElement('li')
+	let getname = document.getElementById('getName')
 let ul = document.createElement('ul');
+
+	li.innerText = name.value;
+
+	ul.appendChild(li)
+}
 let li = document.createElement('li');
 
 ul.appendChild(li)
 
-let getContainer = document.getElementById('div')
-
-getContainer.appendChild(ul);
-
-
-p
+getName.value = ""
+getname.focus()

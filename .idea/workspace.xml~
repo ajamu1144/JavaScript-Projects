@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="eda78f7f-e28b-4700-8feb-414c25250201" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Hotel.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/flowers1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hotel.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hotel.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lion.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ocls1.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ocls2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ocls3.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ohm1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/arrary.html" beforeDir="false" afterPath="$PROJECT_DIR$/arrary.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/array_method.js" beforeDir="false" afterPath="$PROJECT_DIR$/array_method.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/class 1.html" beforeDir="false" afterPath="$PROJECT_DIR$/class 1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/class 2.html" beforeDir="false" afterPath="$PROJECT_DIR$/class 2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/class 2.js" beforeDir="false" afterPath="$PROJECT_DIR$/class 2.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day2.html" beforeDir="false" afterPath="$PROJECT_DIR$/day2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game.html" beforeDir="false" afterPath="$PROJECT_DIR$/game.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game.js" beforeDir="false" afterPath="$PROJECT_DIR$/game.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jsass3.html" beforeDir="false" afterPath="$PROJECT_DIR$/jsass3.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jsass3.js" beforeDir="false" afterPath="$PROJECT_DIR$/jsass3.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lo_and_co.html" beforeDir="false" afterPath="$PROJECT_DIR$/lo_and_co.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/object.html" beforeDir="false" afterPath="$PROJECT_DIR$/object.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+        <option value="CSS File" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="2lq0kZUywo2AAgmSmxJYXqNnLfJ" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;JavaScript Debug.ocls2.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.wow.html.executor&quot;: &quot;Run&quot;,
+    &quot;Node.js.game.js.executor&quot;: &quot;Run&quot;,
+    &quot;Node.js.ocls1.js.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/User/Desktop/J.S Class&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\User\Desktop\J.S Class" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\User\Desktop\J.S Class" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-b26f3e71634d-JavaScript-WS-251.26094.131" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="eda78f7f-e28b-4700-8feb-414c25250201" name="Changes" comment="" />
+      <created>1725892443678</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1725892443678</updated>
+      <workItem from="1725892445631" duration="1545000" />
+      <workItem from="1725908220480" duration="1792000" />
+      <workItem from="1726864989331" duration="2191000" />
+      <workItem from="1737702668805" duration="609000" />
+      <workItem from="1738276257935" duration="158000" />
+      <workItem from="1743011125281" duration="1513000" />
+      <workItem from="1743021116555" duration="564000" />
+      <workItem from="1743878317198" duration="698000" />
+      <workItem from="1707159294910" duration="1152000" />
+      <workItem from="1716649135219" duration="2686000" />
+      <workItem from="1716652370656" duration="56000" />
+      <workItem from="1716594598094" duration="9131000" />
+      <workItem from="1716591691422" duration="105000" />
+      <workItem from="1716591746766" duration="6957000" />
+      <workItem from="1716605259438" duration="13684000" />
+      <workItem from="1716593501454" duration="2230000" />
+      <workItem from="1716599266875" duration="1275000" />
+      <workItem from="1716593659187" duration="313000" />
+      <workItem from="1716591801719" duration="1460000" />
+      <workItem from="1716591726297" duration="19620000" />
+      <workItem from="1716591725156" duration="187000" />
+      <workItem from="1716593250344" duration="7710000" />
+      <workItem from="1716591746297" duration="331000" />
+      <workItem from="1716591745297" duration="54000" />
+      <workItem from="1716591653234" duration="60000" />
+      <workItem from="1716591600000" duration="780000" />
+      <workItem from="1750152096116" duration="148000" />
+      <workItem from="1750152692230" duration="91000" />
+      <workItem from="1716591600000" duration="873000" />
+      <workItem from="1750155275765" duration="5646000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

@@ -71,7 +71,7 @@ function loan() {
     let money = parseInt(amount.value);
     let date = parseInt(time.value);
     let final_amount = 15 / 100 * money + money;
-    document.getElementById('answer').textContent = `you are to pay $${final_amount} in ${date} month/'s at ${final_amount / date} per month `;
+    document.getElementById('answer').textContent = `you are to pay $${final_amount} in ${date} month\'s at ${final_amount / date} per month `;
 }
 
 function invest (){

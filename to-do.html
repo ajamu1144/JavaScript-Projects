@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <style>
+        body, h1, h2, p {
+          margin: 0;
+          padding: 0;
+        }
+
+        body {
+          font-family: Arial, sans-serif;
+          line-height: 1.6;
+        }
+
+        .navbar {
+          background: #333;
+          color: #fff;
+          padding: 10px 0;
+        }
+
+        .contain {
+          width: 80%;
+          margin: 0 auto;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        .logo {
+          font-size: 1.8rem;
+          font-weight: bold;
+        }
+
+        .nav-links {
+          list-style: none;
+          display: flex;
+        }
+
+        .nav-links li {
+          margin-left: 20px;
+        }
+
+        .nav-link {
+          color: #fff;
+          text-decoration: none;
+          padding: 5px 10px;
+          transition: background 0.3s ease;
+        }
+
+        .nav-link:hover {
+          background: #575757;
+          border-radius: 4px;
+        }
+
+
+
+    	* {
+    	    margin: 0;
+    	    padding: 0;
+    	    box-sizing: border-box;
+    	}
+
+    	body {
+    	    font-family: Arial, sans-serif;
+    	    background-color: #f4f4f4;
+    	    display: flex;
+    	    justify-content: center;
+    	    align-items: center;
+    	    height: 100vh;
+    	}
+
+    	.container {
+    	    background-color: #fff;
+    	    padding: 20px;
+    	    border-radius: 10px;
+    	    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    	    width: 300px;
+    	}
+
+    	h1 {
+    	    text-align: center;
+    	    margin-bottom: 20px;
+    	}
+
+    	.input-container {
+    	    display: flex;
+    	    justify-content: space-between;
+    	    margin-bottom: 20px;
+    	}
+
+    	input {
+    	    width: 70%;
+    	    padding: 10px;
+    	    border-radius: 5px;
+    	    border: 1px solid #ccc;
+    	}
+
+    	button {
+    	    padding: 10px;
+    	    border: none;
+    	    background-color: #28a745;
+    	    color: white;
+    	    border-radius: 5px;
+    	    cursor: pointer;
+    	}
+
+    	button:hover {
+    	    background-color: #218838;
+    	}
+
+    	ul {
+    	    list-style-type: none;
+    	}
+
+    	li {
+    	    background-color: #f8f9fa;
+    	    padding: 10px;
+    	    margin-bottom: 10px;
+    	    border-radius: 5px;
+    	    cursor: pointer;
+    	    transition: background-color 0.2s;
+    	}
+
+    	li:hover {
+    	    background-color: #e0e0e0;
+    	}
+
+    </style>
+</head>
+<body>
+
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a class="navbar-brand" href="#">Assignment</a>
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" href="index.html">Day 1</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="day2.html">Day 2</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="object.html">Day 3</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="lo_and_co.html">Day 4</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="class 2.html">Day 5</a>
+              </li>
+              
+              <li class="nav-item">
+                <a class="nav-link" href="jsass3.html">Day 6</a>
+              </li>
+
+
+            </ul>
+          </div>
+        </div>
+      </nav>
+    <main>
+
+
+    <div class="container">
+        <h1>To-Do List</h1>
+        <div class="input-container">
+            <input type="text" id="taskInput" placeholder="Add a new task">
+            <button id="addTaskButton">Add Task</button>
+        </div>
+        <ul id="taskList"></ul>
+    </div>
+
+    <script src="to-do.js"></script>
+</body>
+</html>

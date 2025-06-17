@@ -1,0 +1,39 @@
+h1, #span1{
+    font-family: Arial, serif;
+    font-size: 2.5em;
+}
+
+span{
+    font-size: 5em;
+    font-family: Arial, Serif, serif;
+}
+
+button{
+    border: none;
+    padding: 20px 40px;
+    border-radius: 5px;
+}
+
+#start{
+    background: lime;
+}
+
+#pause{
+    background: orange;
+    display: none;
+}
+
+#continue{
+    background: #007BFF;
+    display: none;
+}
+
+#stop{
+    background: red;
+    display: none;
+}
+
+#reset{
+    background: turquoise;
+    display: none;
+}

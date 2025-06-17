@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>small trivia</title>
+<h1>This is a trivia</h1>
+<p>How big is your penis</p>
+ <p>A)microscopic B)small C)ordinary D)PLANET SIZE</p>
+ <input type="text" name="" id="answer"><button id="ye">SUBMIT</button><br>
+ <p id='result'></p>
+ <script>
+ 	document.getElementById('ye').addEventListener('click', function () {
+ 		if (document.getElementById('answer').value = 'A') {
+ 			document.getElementById('result').textContent ='ooh... thats painful to live with right...?'
+ 		}
+ 	});
+ </script>
+</head>
+</html>

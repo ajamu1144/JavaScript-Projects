@@ -4,227 +4,613 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-        <style>
-            #answer{
-                margin: 20px;
+    <title>All-in-One Calculators</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(to right, #2d3748, #1a202c);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1rem;
+            color: #e0e0e0;
+            font-size: 16px;
+        }
+
+        #r p{
+        }
+
+        main {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            width: 100%;
+            padding: 20px;
+        }
+
+        .calculator-card {
+            background-color: #4a5568;
+            padding: 2rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            width: 350px;
+            height: 450px;
+            text-align: center;
+        }
+
+        .card-title {
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+        }
+
+        .input-group-common {
+            margin-bottom: 1.5rem;
+        }
+
+        .input-group-common label {
+            display: block;
+            color: #edf2f7;
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            text-align: left;
+        }
+
+        .common-input {
+            width: 100%;
+            padding: 0.75rem 0.3rem;
+            background-color: #2d3748;
+            border: 1px solid #a0aec0;
+            border-radius: 0.5rem;
+            color: #ffffff;
+            outline: none;
+            text-align: center;
+            font-size: 1.25rem;
+        }
+
+        .common-input::placeholder {
+            color: #cbd5e0;
+        }
+
+        .common-input:focus {
+            box-shadow: 0 0 0 2px #63b3ed;
+        }
+
+        .error-message {
+            color: #fc8181;
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+            display: none;
+        }
+
+        .common-button {
+            background-color: #2b6cb0;
+            color: #ffffff;
+            font-weight: 700;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            transition: all 300ms ease-in-out;
+            transform: scale(1);
+            outline: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .common-button:hover {
+            background-color: #2c5282;
+            transform: scale(1.05);
+        }
+
+        .common-button:focus {
+            box-shadow: 0 0 0 2px #4299e1, 0 0 0 4px rgba(66, 153, 225, 0.75);
+        }
+
+        .result-display {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background-color: #2d3748;
+            border-radius: 0.5rem;
+            text-align: left;
+            display: none;
+        }
+
+        .result-display p {
+            color: #edf2f7;
+            font-size: 1.125rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .result-display p:last-child {
+            margin-bottom: 0;
+        }
+
+        .result-display strong {
+            color: #63b3ed;
+        }
+
+        #calc-inputs {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            width: 100%;
+        }
+
+        #calc-inputs .common-input {
+            width: 80px;
+            margin: 0 5px;
+            font-size: 1.125rem;
+        }
+
+        #op-span {
+            font-size: 3rem;
+            color: #007bff;
+            font-weight: bold;
+            margin: 0 10px;
+        }
+
+        #calc-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 15px;
+            margin-bottom: 20px;
+            width: 100%;
+            gap: 10px;
+        }
+
+        #sel, .sel{
+            padding: 10px 80px;
+            border-radius: 5px;
+            border: none;
+            background: linear-gradient(to right, #0a53be, #0d6efd, #0dcaf0);
+            color: white;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .opt{
+            color: black;
+        }
+
+        #calc-buttons .common-button {
+            flex-grow: 1;
+            min-width: 40px;
+            max-width: 80px;
+            background-color: #28a745;
+        }
+        #calc-buttons .common-button:hover {
+            background-color: #218838;
+        }
+
+        #basic-calc-result {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #007bff;
+            margin-top: 20px;
+            min-height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            word-wrap: break-word;
+            text-align: center;
+        }
+
+        #investBtn {
+            margin-top: 20px;
+        }
+
+        #loanBtn{
+            margin-top: 20px;
+        }
+
+        .loan-invest-button {
+            background-color: #ffc107;
+            color: black;
+            box-shadow: 0 2px 4px rgba(255, 193, 7, 0.3);
+            margin-top: -20px;
+            width: auto;
+            padding: 12px 25px;
+        }
+        .loan-invest-button:hover {
+            background-color: #e0a800;
+        }
+
+        @media (max-width: 768px) {
+            .nav-content-container {
+                width: 95%;
+                flex-direction: column;
+                align-items: flex-start;
             }
-            #hi{
-                display: flex;
-                flex-direction: row;
-                margin-top: 20px;
-                margin-left: -10px;
+            .navbar-nav {
+                flex-direction: column;
+                align-items: flex-start;
+                margin-top: 10px;
             }
-            button{
-                padding: 10px;
-                color: black;
-                font-weight:bold;
-                margin: 1px 10px;
-                background-color: yellow;
-                box-shadow: ;
-                border-radius: 10px;
-                width: 40px;
-                border: none;
+            .nav-item {
+                margin: 5px 0;
+            }
+            main {
+                padding: 15px;
+                gap: 20px;
             }
 
-            button:hover{
-                color: white;
-                background-color: brown;
-            }
 
-            body{
-                background-color: white;
-                font-weight: bolder;
-                font-family: verdana;
-                font-size: 20px;
+            .calculator-card {
+                width: 95%;
+                max-width: none;
+                padding: 1.5rem;
             }
-            #cal{
-                border: 3px solid black;
-                border-radius: 20px;
-                width: 350px;
-                height: 200px;
-                padding:10px;
+            #calc-inputs .common-input {
+                width: 70px;
+                font-size: 1rem;
             }
+            #op-span {
+                font-size: 2.5rem;
+            }
+            #calc-buttons .common-button {
+                padding: 10px 15px;
+                font-size: 0.9rem;
+            }
+            .result-display p, .input-group-common label {
+                font-size: 1rem;
+            }
+            #basic-calc-result, #loan-result, #invest-result {
+                font-size: 1.2rem;
+            }
+        }
 
-            input{
-                padding: 5px;
-                border: 3px solid black;
-                margin: 5px;
-                border-radius: 9px;
-                margin: 10px;
-                width: 100px;
+        @media (max-width: 480px) {
+            .navbar-brand {
+                font-size: 1.5rem;
             }
-            #plus{
-                margin-left: 50px;
+            .nav-item {
+                margin: 3px 0;
             }
-            span{
-                font-size: 50px;
-            }
-            body, h1, h2, p {
-              margin: 0;
-              padding: 0;
-            }
-
-            body {
-              font-family: Arial, sans-serif;
-              line-height: 1.6;
-            }
-
-            .navbar {
-              background: #333;
-              color: #fff;
-              padding: 10px 0;
-            }
-
-            .container {
-              width: 80%;
-              margin: 0 auto;
-              display: flex;
-              justify-content: space-between;
-              align-items: center;
-            }
-
-            .logo {
-              font-size: 1.8rem;
-              font-weight: bold;
-            }
-
-            .nav-links {
-              list-style: none;
-              display: flex;
-            }
-
-            .nav-links li {
-              margin-left: 20px;
-            }
-
             .nav-link {
-              color: #fff;
-              text-decoration: none;
-              padding: 5px 10px;
-              transition: background 0.3s ease;
+                padding: 3px 8px;
             }
+            .calculator-card {
+                padding: 1rem;
+            }
+            .card-title {
+                font-size: 1.8rem;
+                margin-bottom: 1rem;
+            }
+            #calc-inputs .common-input {
+                width: 60px;
+                font-size: 0.9rem;
+            }
+            #op-span {
+                font-size: 2rem;
+            }
+            #calc-buttons .common-button {
+                margin: 3px;
+                padding: 8px 12px;
+            }
+            .loan-invest-button {
+                padding: 10px 20px;
+            }
+            .result-display p, .input-group-common label {
+                font-size: 0.9rem;
+            }
+            #basic-calc-result, #loan-result, #invest-result {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
 
-            .nav-link:hover {
-              background: #575757;
-              border-radius: 4px;
-            }
-            #oga{
-                display: flex;
-                gap: 50px;
-            }
-            #loan_calculator{
-                border: 3px solid black;
-                border-radius: 15px;
-            }
-            #loan{
-                width: 6 0px;
-                display: flex;
-                position: relative;
-                left: 170px;
-                top: 30px;
-            }
-            .nav-link{
-              color: black;
+<body>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="#">Assignment</a>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Documentation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="day2.html">Variable Declaration</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="object.html">About Me</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="lo_and_co.html">Logical Operators</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="class 2.html">Time Implementation</a>
+                </li>
 
-            }
-            #oga{
-                display: flex;
-                flex-direction: column;
-            }
-
-            div{
-                width: fit-content;
-                height: fit-content;
-                padding: 20px;
-            }
-
-            #cal{
-                display: flex;
-                flex-direction: column;
-                height: 300px;
-            }
-        </style>
-    </head>
-    
-    <body>
-         <nav class="navbar navbar-expand-lg bg-body-tertiary">
-           <div class="container-fluid">
-             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-               <span class="navbar-toggler-icon"></span>
-             </button>
-             <a class="navbar-brand" href="#">Assignment</a>
-             <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                 <li class="nav-item">
-                   <a class="nav-link" href="index.html">Day 1</a>
-                 </li>
-                 <li class="nav-item">
-                   <a class="nav-link" href="day2.html">Day 2</a>
-                 </li>
-                 <li class="nav-item">
-                   <a class="nav-link" href="object.html">Day 3</a>
-                 </li>
-                 <li class="nav-item">
-                   <a class="nav-link" href="lo_and_co.html">Day 4</a>
-                 </li>
-                 <li class="nav-item">
-                   <a class="nav-link" href="class 2.html">Day 5</a>
-                 </li>
-                 
-                 <li class="nav-item">
-                   <a class="nav-link" href="jsass3.html">Day 6</a>
-                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="jsass3.html">Multi Calculators</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="game.html">Guess my Number</a>
+                </li>
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link" href="loopass.html">Odd Numbers</a>-->
+<!--                </li>-->
 
 
-               </ul>
-             </div>
-           </div>
-         </nav>
-       <main>
-        <div id="oga">
-            <div id="cal">
-                <div id="inputs">
-                    <input type="text" id="first">  
-                    <span id="myspan"></span>
-                    <input type="text" id="second">
-                </div>  
-                <div id="hi">
-                    <button id="plus" onclick="pluss()">+</button>
-                    <button id="minus" onclick="minuss()">-</button>
-                    <button id="divide" onclick="divides()">/</button>
-                    <button id="multi" onclick="multiplies()">*</button>
-                                                            <br>
-                </div>     
-                    <h3 id="result"> </h3>
-            </div>                                        
-                
-            <div id="loan_calculator">
-              <div id="input">
-                <label for="Amount">Amount</label>
-                <input type="text" id="Amount">
-                <label for="time">Time</label>
-                <input type="text" id="time"> <br>
-                <button id="loan" onclick="loan()">Loan</button>
-              </div>
-           
-              <h3 id="answer" onclick="loan()"></h3>
-            </div> 
 
-            <div id="loan_calculator">
-              <div id="input">
-                <label for="invest">Investment Amount</label>
-                <input type="text" id="Amount_Invested"> <br>
-                <label for="time">Time</label>
-                <input type="text" id="timei"> <br>
-                <button id="loan" onclick="invest()">Invest</button>
-              </div>
-           
-              <h3 id="sooooo"></h3>
-            </div> 
-        </div> 
-     <script src="jsass3.js"></script>
-    <script src=" https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    </body>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+<main>
+    <div class="calculator-card">
+        <h1 class="card-title">Age & Retirement Calculator</h1>
+
+        <div class="input-group-common">
+            <label for="birthYearInput">
+                When were you born?
+            </label>
+            <input type="number" id="birthYearInput" placeholder="e.g., 1990" class="common-input">
+            <p id="ageError" class="error-message"></p>
+        </div>
+
+        <button id="calculateBtn" class="common-button">
+            Calculate Age & Retirement
+        </button>
+
+        <div id="r">
+            <p id="ageError"><strong>Error:</strong></p>
+            <p><strong>Retirement Status:</strong> <span id="retirementStatus"></span></p>
+        </div>
+    </div>
+
+    <div class="calculator-card">
+        <h1 class="card-title">Basic Calculator</h1>
+        <div id="calc-inputs">
+            <input type="text" id="firstNum" class="common-input">
+            <span id="op-span"></span>
+            <input type="text" id="secondNum" class="common-input">
+        </div>
+        <div id="calc-buttons">
+            <button id="plusBtn" class="common-button">+</button>
+            <button id="minusBtn" class="common-button">-</button>
+            <button id="divideBtn" class="common-button">/</button>
+            <button id="multiBtn" class="common-button">*</button>
+        </div>
+        <h3 id="basic-calc-result"></h3>
+    </div>
+
+    <div class="calculator-card">
+        <h1 class="card-title">Loan Calculator</h1>
+        <div class="input-group-common">
+            <label for="loanAmountInput">Amount</label>
+            <input type="text" id="loanAmountInput" class="common-input">
+            <label for="loanTimeSelect">Time (Years)</label>
+            <select id="loanTimeSelect" class="sel">
+                <option value="1" class="opt">1 Year</option>
+                <option value="2" class="opt">2 Year</option>
+                <option value="3" class="opt">3 Year</option>
+                <option value="4" class="opt">4 Year</option>
+                <option value="5" class="opt">5 Year</option>
+                <option value="6" class="opt">6 Year</option>
+                <option value="7" class="opt">7 Year</option>
+                <option value="8" class="opt">8 Year</option>
+            </select>
+
+            <p id="loanError" class="error-message"></p>
+        </div>
+        <button id="loanBtn" class="common-button loan-invest-button">Calculate Loan</button>
+        <h3 id="loan-result"></h3>
+    </div>
+
+    <div class="calculator-card">
+        <h1 class="card-title">Investment Calculator</h1>
+        <div class="input-group-common">
+            <label for="investAmountInput">Investment Amount</label>
+            <input type="text" id="investAmountInput" class="common-input">
+            <label for="investTimeSelect">Time (Years)</label>
+            <select id="investTimeSelect" class="sel">
+                <option value="1" class="opt">1 Year</option>
+                <option value="2" class="opt">2 Year</option>
+                <option value="3" class="opt">3 Year</option>
+                <option value="4" class="opt">4 Year</option>
+                <option value="5" class="opt">5 Year</option>
+                <option value="6" class="opt">6 Year</option>
+                <option value="7" class="opt">7 Year</option>
+                <option value="8" class="opt">8 Year</option>
+            </select>
+            <p id="investError" class="error-message"></p>
+        </div>
+        <button id="investBtn" class="common-button loan-invest-button">Calculate Investment</button>
+        <h3 id="invest-result"></h3>
+    </div>
+</main>
+
+<script>
+    const birthYearInput = document.getElementById('birthYearInput');
+    const calculateBtn = document.getElementById('calculateBtn');
+    const retirementStatus = document.getElementById('retirementStatus');
+    const ageErrorDisplay = document.getElementById('ageError');
+
+    const currentYear = new Date().getFullYear();
+    const RETIRE_AGE = 55;
+
+    calculateBtn.addEventListener('click', function() {
+        const birthYear = Number(birthYearInput.value);
+        ageErrorDisplay.style.display = 'none';
+
+        if (isNaN(birthYear) || birthYearInput.value.trim() === '') {
+            ageErrorDisplay.textContent = 'Please enter a valid birth year.';
+            ageErrorDisplay.style.display = 'block';
+            retirementStatus.textContent = '';
+            return;
+        }
+
+        if (birthYear > currentYear) {
+            ageErrorDisplay.textContent = `You can't be born after ${currentYear}.`;
+            ageErrorDisplay.style.display = 'block';
+            retirementStatus.textContent = '';
+            return;
+        }
+
+        const age = currentYear - birthYear;
+        const yearsToRetire = RETIRE_AGE - age;
+
+        if (age < 0) {
+            retirementStatus.textContent = 'Please enter a valid birth year.';
+        } else if (age >= 100) {
+            retirementStatus.textContent = `You are ${age} years old. It's highly likely you are already retired.`;
+        } else if (yearsToRetire <= 0) {
+            retirementStatus.textContent = `You are ${age} years old. You retired ${-yearsToRetire} year${-yearsToRetire !== 1 ? 's' : ''} ago.`;
+        } else {
+            retirementStatus.textContent = `You are ${age} years old. You will retire in ${yearsToRetire} year${yearsToRetire !== 1 ? 's' : ''}.`;
+        }
+    });
+
+
+    const firstNumInput = document.getElementById('firstNum');
+    const secondNumInput = document.getElementById('secondNum');
+    const opSpan = document.getElementById('op-span');
+    const basicCalcResult = document.getElementById('basic-calc-result');
+    const plusBtn = document.getElementById('plusBtn');
+    const minusBtn = document.getElementById('minusBtn');
+    const divideBtn = document.getElementById('divideBtn');
+    const multiBtn = document.getElementById('multiBtn');
+
+    function validateNums(n1, n2, resultElem) {
+        if (isNaN(n1) || n1.toString().trim() === '' || isNaN(n2) || n2.toString().trim() === '') {
+            resultElem.textContent = 'Enter valid numbers.';
+            resultElem.style.color = '#fc8181';
+            return false;
+        }
+        resultElem.style.color = '#007bff';
+        return true;
+    }
+
+    plusBtn.addEventListener('click', () => {
+        const n1 = Number(firstNumInput.value);
+        const n2 = Number(secondNumInput.value);
+        opSpan.textContent = '+';
+        if (validateNums(n1, n2, basicCalcResult)) {
+            basicCalcResult.textContent = `Result: ${n1 + n2}`;
+        }
+    });
+
+    minusBtn.addEventListener('click', () => {
+        const n1 = Number(firstNumInput.value);
+        const n2 = Number(secondNumInput.value);
+        opSpan.textContent = '-';
+        if (validateNums(n1, n2, basicCalcResult)) {
+            basicCalcResult.textContent = `Result: ${n1 - n2}`;
+        }
+    });
+
+    divideBtn.addEventListener('click', () => {
+        const n1 = Number(firstNumInput.value);
+        const n2 = Number(secondNumInput.value);
+        opSpan.textContent = '/';
+        if (validateNums(n1, n2, basicCalcResult)) {
+            if (n2 === 0) {
+                basicCalcResult.textContent = 'Cannot divide by zero.';
+                basicCalcResult.style.color = '#fc8181';
+            } else {
+                basicCalcResult.textContent = `Result: ${n1 / n2}`;
+            }
+        }
+    });
+
+    multiBtn.addEventListener('click', () => {
+        const n1 = Number(firstNumInput.value);
+        const n2 = Number(secondNumInput.value);
+        opSpan.textContent = '*';
+        if (validateNums(n1, n2, basicCalcResult)) {
+            basicCalcResult.textContent = `Result: ${n1 * n2}`;
+        }
+    });
+
+    const loanAmountInput = document.getElementById('loanAmountInput');
+    const loanTimeSelect = document.getElementById('loanTimeSelect');
+    const loanBtn = document.getElementById('loanBtn');
+    const loanResult = document.getElementById('loan-result');
+    const loanError = document.getElementById('loanError');
+    const LOAN_RATE = 0.05;
+
+    loanBtn.addEventListener('click', calcLoan);
+
+    function showLoanMsg(msg, isErr = false) {
+        if (isErr) {
+            loanError.textContent = msg;
+            loanError.style.display = 'block';
+            loanResult.textContent = '';
+        } else {
+            loanError.style.display = 'none';
+            loanResult.textContent = msg;
+        }
+    }
+
+    function calcLoan() {
+        const amount = Number(loanAmountInput.value);
+        const time = Number(loanTimeSelect.value);
+
+        showLoanMsg('', false);
+
+        if (isNaN(amount) || amount <= 0 || loanAmountInput.value.trim() === '') {
+            showLoanMsg('Please enter a valid positive number for the amount.', true);
+            return;
+        }
+
+        const interest = amount * time * LOAN_RATE;
+        const total = amount + interest;
+        const monthlyPayment = total / time;
+        showLoanMsg(`You are to pay a total of ${total.toFixed(2)} at ${monthlyPayment.toFixed(2)} for ${time == 1 ? 'a year' : `${time} years`}.`);
+    }
+
+    const investAmountInput = document.getElementById('investAmountInput');
+    const investTimeSelect = document.getElementById('investTimeSelect');
+    const investBtn = document.getElementById('investBtn');
+    const investResult = document.getElementById('invest-result');
+    const investError = document.getElementById('investError');
+    const INVEST_RATE = 0.07;
+
+    investBtn.addEventListener('click', calcInvest);
+
+    function showInvestMsg(msg, isErr = false) {
+        if (isErr) {
+            investError.textContent = msg;
+            investError.style.display = 'block';
+            investResult.textContent = '';
+        } else {
+            investError.style.display = 'none';
+            investResult.textContent = msg;
+        }
+    }
+
+    function calcInvest() {
+        const amount = Number(investAmountInput.value);
+        const time = Number(investTimeSelect.value);
+
+        showInvestMsg('', false);
+
+        if (isNaN(amount) || amount <= 0 || investAmountInput.value.trim() === '') {
+            showInvestMsg('Please enter a valid positive number for the investment amount.', true);
+            return;
+        }
+
+        const futureValue = amount * Math.pow((1 + INVEST_RATE), time);
+        const totalInterest = futureValue - amount;
+        showInvestMsg(`Future Value: $${futureValue.toFixed(2)} (Earned: $${totalInterest.toFixed(2)})`);
+    }
+</script>
+<script src="js/bootstrap.bundle.js"></script>
+</body>
 </html>
