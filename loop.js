@@ -46,7 +46,7 @@
 // while (p <=10) {
 // 	console.log(p, "this is an even number");
 // 	p++
-// }  
+// }
 
 
 
@@ -59,15 +59,100 @@
 // }
 
 // while(k <= 10)
-ul = document.getElementById('ul')
-let numbers = [10,20,30,40,50,60,70,80]
-let sum = 0;
+// ul = document.getElementById('ul')
+// let numbers = [10,20,30,40,50,60,70,80]
+// let sum = 0;
+//
+// for (let p =0; p<numbers.length; p++) {
+//
+// 	sum += numbers[p]
+//
+// 	ul.innerHTML = `<li>${sum}</li>`
+//
+// };
 
-for (let p =0; p<numbers.length; p++) {
+//
 
-	sum += numbers[p]
+// for (n = 43; n <= 57; n++) {
+// 	let p = true;
+// 	for (i = 2; i < n; i++) {
+// 		if (n % i === 0){
+// 			p = false;
+// 		}
+// 	}
+// 	if (p == true){
+// 		console.log(n);
+// 	}
+// }
 
-	ul.innerHTML = `<li>${sum}</li>`
 
-}; 
+let input = document.getElementById('input');
+let btn = document.getElementById('button');
+let paragraph = document.getElementById('p');
+let h1 = document.getElementById('h1')
 
+function isPrime(number) {
+    for(i=0; i < number; i++){
+        if(i * 2 !== number){
+            return false
+        }
+        else{
+            return true
+        }
+    }
+    let newNum = Math.trunc(num)
+    return num.toString().includes(".");
+}
+
+function check(numh, element){
+    if(isPrime(numh)){
+        element.style.color = 'red'
+        return `${numh} is Not a Prime Number`;
+    }
+    else{
+        element.style.color = 'lime'
+        return `${numh} is a Prime Number`
+    }
+}
+
+function isPrime2(){
+}
+
+input.addEventListener('input', ()=>{
+    if(input.value > 50){
+        paragraph.style.color = "#ff0c37"
+        paragraph.textContent = 'You can\'t Input a Number which is greater that 30'
+    }
+
+    else if(isNaN(input.value) || input.value === ''){
+        paragraph.style.color = "#ff0c37"
+        paragraph.textContent = 'Invalid Input(Enter A Correct Input)'
+    }
+    else if(input.value <= 0){
+        paragraph.style.color = "#ff0c37"
+        paragraph.textContent = 'Your Input cant be less than 1'
+    }
+    else{
+        if (input.value === '1'){
+           paragraph.textContent = `${input.value} is not a prime Number`
+        }
+        else{
+            paragraph.textContent = check(input.value, paragraph)
+        }
+    }
+
+});
+
+let primes = []
+//
+// for(i = 50; i <= 100; i++){
+//     let p = true
+//     if (!isPrime(i)){
+//     h1.innerText = primes[i]
+//
+//     }
+//     else{
+//         console.log('hi')
+//     }
+// }
+//

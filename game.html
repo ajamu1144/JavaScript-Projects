@@ -113,6 +113,10 @@
 			width: 100%;
 		}
 
+		#reset{
+			display: none;
+		}
+
 		.game-input-container label {
 			display: block;
 			margin-bottom: 8px;
@@ -126,7 +130,7 @@
 			text-align: center;
 		}
 
-		.action-button {
+		.action-button, #blh{
 			padding: 12px 25px;
 			color: white;
 			font-weight: bold;
@@ -139,8 +143,11 @@
 			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 			width: fit-content;
 		}
+		#blh{
+			display: none;
+		}
 
-		.action-button:hover {
+		.action-button:hover, #blh:hover{
 			background-color: #0056b3;
 			transform: translateY(-2px);
 		}
@@ -231,7 +238,7 @@
 			.game-input {
 				font-size: 0.9rem;
 			}
-			.action-button {
+			.action-button, #blh {
 				padding: 10px 20px;
 				font-size: 1rem;
 			}
@@ -256,13 +263,16 @@
 			.game-input {
 				font-size: 0.85rem;
 			}
-			.action-button {
+			.action-button, #blh {
 				padding: 8px 15px;
 				font-size: 0.9rem;
 			}
 			.result-display {
 				font-size: 1rem;
 			}
+		}
+		#container2{
+			display: none;
 		}
 	</style>
 </head>
@@ -280,15 +290,8 @@
 					<a class="nav-link" href="index.html">Documentation</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="day2.html">Variable Declaration</a>
-				</li>
-				<li class="nav-item">
 					<a class="nav-link" href="object.html">About Me</a>
 				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="lo_and_co.html">Logical Operators</a>
-				</li>
-				<li class="nav-item">
 					<a class="nav-link" href="class 2.html">Time Implementation</a>
 				</li>
 
@@ -296,15 +299,8 @@
 					<a class="nav-link" href="jsass3.html">Multi Calculators</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="game.html">Guess my Number and To Do List</a>
+					<a class="nav-link" href="game.html">Guess my Number </a>
 				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="loopass.html">Odd Numbers</a>
-				</li>
-
-
-
-
 			</ul>
 		</div>
 	</div>
@@ -320,9 +316,11 @@
 				<input type="text" id="hii" class="game-input">
 			</div>
 			<button id="btn" class="action-button">Check</button>
+			<button id="reset" class="action-button">Reset</button>
 			<h3 id="h3" class="result-display"></h3>
 			<h3 id="highest"></h3>
 			<h4 id="score">Score:0</h4>
+			<button id="blh">Play Again</button>
 		</div>
 
 		<div id="container2" class="todo-card">

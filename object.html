@@ -77,6 +77,11 @@
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
             max-width: 500px;
             width: 100%;
+            display: flex;
+            flex-direction: column;
+            /*text-align: center;*/
+        }
+        .content-wrapper button{
             text-align: center;
         }
 
@@ -92,6 +97,7 @@
             transition: background-color 0.3s ease, transform 0.2s ease;
             margin-bottom: 25px;
             box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+            justify-content: center;
         }
 
         #btn:hover {
@@ -116,9 +122,6 @@
             text-align: left;
             font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
             font-size: 0.9rem;
-            overflow-x: auto;
-            white-space: pre-wrap;
-            word-break: break-word;
             color: #e0e0e0;
         }
 
@@ -170,14 +173,9 @@
                     <a class="nav-link" href="index.html">Documentation</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="day2.html">Variable Declaration</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" href="object.html">About Me</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="lo_and_co.html">Logical Operators</a>
-                </li>
+
                 <li class="nav-item">
                     <a class="nav-link" href="class 2.html">Time Implementation</a>
                 </li>
@@ -198,33 +196,38 @@
         <button id="btn">Show More</button>
         <h3 id="text"></h3>
         <div id="code">
-          <pre><code>
-            let myself = {
-                name:"Ajamu Emmanuel",
-                age:"13",
-                school:"ISI",
-                interests: ["Coding", "Gaming", "Reading"],
-                skills: ["HTML", "CSS", "JavaScript (Beginner)"],
-                height:"12.4 feet",
-                weight:"20 pounds"
-            };
+            <p>
 
-            let write = document.getElementById('text');
-            let showMoreBtn = document.getElementById('btn');
-            let isMoreShown = false;
+                    let myself = {
+                    name:"Ajamu Emmanuel",
+                    age:"13",
+                    school:"ISI",
+                    interests: ["Coding ,", "Gaming ,", 'and', "Reading"],
+                    skills: ["HTML", "CSS", "JavaScript"],
+                    height:"12.4 feet",
+                    weight:"50 pounds",
+                };
 
-            showMoreBtn.addEventListener('click', ()=> {
-                if (!isMoreShown) {
-                    write.innerHTML = `Hello, my name is ${myself.name} and I am ${myself.age} years old. I go to the school named ${myself.school}. My interests include ${myself.interests.join(', ')}. I am currently learning ${myself.skills.join(', ')}. I stand at about ${myself.height} and I weigh about ${myself.weight}.`;
-                    showMoreBtn.textContent = 'Show Less';
-                    isMoreShown = true;
-                } else {
-                    write.innerHTML = 'A curious individual interested in technology.';
-                    showMoreBtn.textContent = 'Show More';
-                    isMoreShown = false;
-                }
-            });
-          </code></pre>
+                let write = document.getElementById('text');
+                let showMoreBtn = document.getElementById('btn');
+                let isMoreShown = false;
+                write.innerHTML = `Hello, my name is ${myself.name} and I am ${myself.age} years old`;
+
+                showMoreBtn.addEventListener('click', ()=> {
+                    if (!isMoreShown) {
+                        write.innerHTML = `Hello, my name is ${myself.name} and I am ${myself.age} years old. I go to the school
+                                            named ${myself.school}.My interests include ${myself.interests.join(" ")}. I am currently learning ${myself.skills}. <br>
+                                             I stand at about ${myself.height} and I weigh about
+                                            ${myself.weight}. `;
+                        showMoreBtn.textContent = 'Show Less';
+                        isMoreShown = true;
+                    } else {
+                        write.innerHTML = `Hello, my name is ${myself.name} and I am ${myself.age} years old.......`;
+                        showMoreBtn.textContent = 'Show More';
+                        isMoreShown = false;
+                    }
+                });
+            </p>
         </div>
     </div>
 </main>
@@ -236,10 +239,10 @@
         name:"Ajamu Emmanuel",
         age:"13",
         school:"ISI",
-        interests: ["Coding", "Gaming", "Reading"],
-        skills: ["HTML", "CSS", "JavaScript (Beginner)"],
+        interests: ["Coding ,", "Gaming ,", 'and', "Reading"],
+        skills: ["HTML", "CSS", "JavaScript"],
         height:"12.4 feet",
-        weight:"50 pounds"
+        weight:"50 pounds",
     };
 
     let write = document.getElementById('text');
@@ -249,10 +252,10 @@
 
     showMoreBtn.addEventListener('click', ()=> {
         if (!isMoreShown) {
-            write.innerHTML = `Hello, my name is ${myself.name} and I am ${myself.age} years old. I go to the school <br>
-                                named ${myself.school}. My interests include ${myself.interests.join(', ')}. I am currently <br>
-                                learning ${myself.skills.join(', ')}. I stand at about ${myself.height} and I weigh about <br>
-                                ${myself.weight}.`;
+            write.innerHTML = ` &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hello, my name is ${myself.name} and I am ${myself.age} years old. I go to the school
+                                named ${myself.school}. <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; My interests include ${myself.interests.join(" ")}. I am currently learning ${myself.skills}. <br>
+                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I stand at about ${myself.height} and I weigh about
+                                ${myself.weight}. <br> `;
             showMoreBtn.textContent = 'Show Less';
             isMoreShown = true;
         } else {

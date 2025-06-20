@@ -7,6 +7,11 @@
     <title>All-in-One Calculators</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         body {
             font-family: 'Inter', sans-serif;
             background: linear-gradient(to right, #2d3748, #1a202c);
@@ -17,6 +22,10 @@
             padding: 1rem;
             color: #e0e0e0;
             font-size: 16px;
+        }
+
+        .hi{
+            display: none;
         }
 
         #r p{
@@ -39,7 +48,7 @@
             border-radius: 0.75rem;
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
             width: 350px;
-            height: 450px;
+            height: 480px;
             text-align: center;
         }
 
@@ -87,7 +96,6 @@
             color: #fc8181;
             font-size: 0.875rem;
             margin-top: 0.5rem;
-            display: none;
         }
 
         .common-button {
@@ -134,6 +142,10 @@
 
         .result-display strong {
             color: #63b3ed;
+        }
+
+        #stats{
+            display: none;
         }
 
         #calc-inputs {
@@ -323,15 +335,9 @@
                     <a class="nav-link" href="index.html">Documentation</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="day2.html">Variable Declaration</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" href="object.html">About Me</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="lo_and_co.html">Logical Operators</a>
-                </li>
-                <li class="nav-item">
+                <li>
                     <a class="nav-link" href="class 2.html">Time Implementation</a>
                 </li>
 
@@ -339,15 +345,8 @@
                     <a class="nav-link" href="jsass3.html">Multi Calculators</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="game.html">Guess my Number</a>
+                    <a class="nav-link" href="game.html">Guess my Number </a>
                 </li>
-<!--                <li class="nav-item">-->
-<!--                    <a class="nav-link" href="loopass.html">Odd Numbers</a>-->
-<!--                </li>-->
-
-
-
-
             </ul>
         </div>
     </div>
@@ -369,8 +368,8 @@
         </button>
 
         <div id="r">
-            <p id="ageError"><strong>Error:</strong></p>
-            <p><strong>Retirement Status:</strong> <span id="retirementStatus"></span></p>
+            <p id="ageError" class="hi"><strong>Error:</strong></p>
+            <p id="stats"><strong>Retirement Status:</strong> <span id="retirementStatus"></span></p>
         </div>
     </div>
 
@@ -395,28 +394,30 @@
         <div class="input-group-common">
             <label for="loanAmountInput">Amount</label>
             <input type="text" id="loanAmountInput" class="common-input">
+            <p style="color:red; font-weight: bold;">Our Bank Loan's at 20% interest</p>
             <label for="loanTimeSelect">Time (Years)</label>
             <select id="loanTimeSelect" class="sel">
                 <option value="1" class="opt">1 Year</option>
-                <option value="2" class="opt">2 Year</option>
-                <option value="3" class="opt">3 Year</option>
-                <option value="4" class="opt">4 Year</option>
-                <option value="5" class="opt">5 Year</option>
-                <option value="6" class="opt">6 Year</option>
-                <option value="7" class="opt">7 Year</option>
-                <option value="8" class="opt">8 Year</option>
+                <option value="2" class="opt">2 Years</option>
+                <option value="3" class="opt">3 Years</option>
+                <option value="4" class="opt">4 Years</option>
+                <option value="5" class="opt">5 Years</option>
+                <option value="6" class="opt">6 Years</option>
+                <option value="7" class="opt">7 Years</option>
+                <option value="8" class="opt">8 Years</option>
             </select>
 
             <p id="loanError" class="error-message"></p>
         </div>
         <button id="loanBtn" class="common-button loan-invest-button">Calculate Loan</button>
-        <h3 id="loan-result"></h3>
+        <p id="loan-result" style="margin-top: 12px; font-size: 14px;"></p>
     </div>
 
-    <div class="calculator-card">
+    <div class="calculator-card" style ="height: 550px;">
         <h1 class="card-title">Investment Calculator</h1>
         <div class="input-group-common">
             <label for="investAmountInput">Investment Amount</label>
+            <p style="color:red; font-weight: bold; margin-left: -50px;">Our Bank gives interest at 20%</p>
             <input type="text" id="investAmountInput" class="common-input">
             <label for="investTimeSelect">Time (Years)</label>
             <select id="investTimeSelect" class="sel">
@@ -432,7 +433,7 @@
             <p id="investError" class="error-message"></p>
         </div>
         <button id="investBtn" class="common-button loan-invest-button">Calculate Investment</button>
-        <h3 id="invest-result"></h3>
+        <h4 id="invest-result" style ="margin-top: 15px; font-size: 14px;"></h4>
     </div>
 </main>
 
@@ -444,23 +445,21 @@
 
     const currentYear = new Date().getFullYear();
     const RETIRE_AGE = 55;
-
+    const stats = document.getElementById('stats')
     calculateBtn.addEventListener('click', function() {
         const birthYear = Number(birthYearInput.value);
         ageErrorDisplay.style.display = 'none';
 
         if (isNaN(birthYear) || birthYearInput.value.trim() === '') {
-            ageErrorDisplay.textContent = 'Please enter a valid birth year.';
             ageErrorDisplay.style.display = 'block';
+            ageErrorDisplay.textContent = 'Please enter a valid birth year.';
             retirementStatus.textContent = '';
-            return;
         }
 
         if (birthYear > currentYear) {
             ageErrorDisplay.textContent = `You can't be born after ${currentYear}.`;
             ageErrorDisplay.style.display = 'block';
             retirementStatus.textContent = '';
-            return;
         }
 
         const age = currentYear - birthYear;
@@ -468,11 +467,16 @@
 
         if (age < 0) {
             retirementStatus.textContent = 'Please enter a valid birth year.';
-        } else if (age >= 100) {
-            retirementStatus.textContent = `You are ${age} years old. It's highly likely you are already retired.`;
-        } else if (yearsToRetire <= 0) {
-            retirementStatus.textContent = `You are ${age} years old. You retired ${-yearsToRetire} year${-yearsToRetire !== 1 ? 's' : ''} ago.`;
-        } else {
+        }
+        else if (age < 0) {
+            retirementStatus.textContent = "You are can't be born before year 0";
+        }
+        else if (yearsToRetire < 0) {
+            stats.style.display = 'block'
+            retirementStatus.textContent = `You are ${age} years old. You ought to have retired ${-yearsToRetire} year${-yearsToRetire !== 1 ? 's' : ''} ago.`;
+        }
+        else {
+            stats.style.display = 'block'
             retirementStatus.textContent = `You are ${age} years old. You will retire in ${yearsToRetire} year${yearsToRetire !== 1 ? 's' : ''}.`;
         }
     });
@@ -538,78 +542,83 @@
         }
     });
 
-    const loanAmountInput = document.getElementById('loanAmountInput');
-    const loanTimeSelect = document.getElementById('loanTimeSelect');
-    const loanBtn = document.getElementById('loanBtn');
-    const loanResult = document.getElementById('loan-result');
-    const loanError = document.getElementById('loanError');
-    const LOAN_RATE = 0.05;
+    let loanInput = document.getElementById('loanAmountInput');
+    let selector = document.getElementById('loanTimeSelect')
+    let loanBtn = document.getElementById('loanBtn')
+    let loanError = document.getElementById('loanError')
+    let loanResult = document.getElementById('loan-result')
+    function loan(){
+        if(isNaN(loanInput.value) || loanInput.value.trim() === ''){
+            console.log('Jesus')
+            loanError.textContent = 'Enter a valid Number'
+            loanResult.textContent = ''
+        }
+        else if (loanInput.value <= 0){
+            loanError.textContent = 'Enter a positive number above 0'
+            console.log('hi')
+            loanResult.textContent = ''
+        }
+        else if (loanInput.value.includes('.')){
+            loanResult.textContent = ''
+            loanError.textContent = 'Please Input A Perfect Integer/Number Without Decimal\'s'
+        }
 
-    loanBtn.addEventListener('click', calcLoan);
+        else if (loanInput.value > 1000000){
+            loanResult.textContent = ''
+            loanError.textContent = 'You Cannot Be Loaned More Than $1000000'
+        }
 
-    function showLoanMsg(msg, isErr = false) {
-        if (isErr) {
-            loanError.textContent = msg;
-            loanError.style.display = 'block';
-            loanResult.textContent = '';
-        } else {
-            loanError.style.display = 'none';
-            loanResult.textContent = msg;
+        else{
+            loanError.textContent = ''
+            let repayAmount = loanInput.value * selector.value * 0.2;
+            console.log(selector.value);
+            let total = repayAmount + Number(loanInput.value)
+            let monthly = total / (selector.value * 12)
+            loanResult.textContent = `You Will Repay a Total Of $${total} for ${selector.value} ${selector.value === 1 ? "month" : "months"} At $${monthly} per Month for ${selector.value * 12} months`
+        }
+
+    }
+
+    loanBtn.addEventListener('click', loan)
+
+    let investInput = document.getElementById('investAmountInput');
+    let InvestSelector = document.getElementById('investAmountInput')
+    let investError = document.getElementById('investError')
+    let investResult = document.getElementById('invest-result')
+    let investBtn = document.getElementById('investBtn')
+    let selectors =  document.getElementById('investTimeSelect')
+
+    function invest(){
+        if(isNaN(investInput.value) || investInput.value.trim() === ''){
+            investError.textContent = 'Enter a valid Number'
+            investResult.textContent = ''
+        }
+        else if (investInput.value <= 0){
+            investError.textContent = 'Enter a positive number above 0'
+            console.log('hi')
+            investResult.textContent = ''
+        }
+        else if (investInput.value.includes('.')){
+            investError.textContent = 'Please Input A Perfect Integer/Number Without Decimal\'s'
+            investResult.textContent = ''
+        }
+
+        else if (investInput.value > 1000000){
+            investResult.textContent = ''
+            investError.textContent = 'You Cannot Be Loaned More Than $1000000'
+        }
+        else{
+            investError.textContent = ''
+            let repayAmount = investInput.value * selector.value * 0.2;
+            console.log(selectors.value);
+            let total = repayAmount + Number(investInput.value)
+            // let monthly = total / (selector.value * 12)
+            investResult.textContent = `You will be payed a total of $${total} for ${selectors.value} ${selectors.value > 1 ? "years" : "year"} for your $${investInput.value} at an interest of $${repayAmount}`
         }
     }
 
-    function calcLoan() {
-        const amount = Number(loanAmountInput.value);
-        const time = Number(loanTimeSelect.value);
+investBtn.addEventListener('click', invest)
 
-        showLoanMsg('', false);
-
-        if (isNaN(amount) || amount <= 0 || loanAmountInput.value.trim() === '') {
-            showLoanMsg('Please enter a valid positive number for the amount.', true);
-            return;
-        }
-
-        const interest = amount * time * LOAN_RATE;
-        const total = amount + interest;
-        const monthlyPayment = total / time;
-        showLoanMsg(`You are to pay a total of ${total.toFixed(2)} at ${monthlyPayment.toFixed(2)} for ${time == 1 ? 'a year' : `${time} years`}.`);
-    }
-
-    const investAmountInput = document.getElementById('investAmountInput');
-    const investTimeSelect = document.getElementById('investTimeSelect');
-    const investBtn = document.getElementById('investBtn');
-    const investResult = document.getElementById('invest-result');
-    const investError = document.getElementById('investError');
-    const INVEST_RATE = 0.07;
-
-    investBtn.addEventListener('click', calcInvest);
-
-    function showInvestMsg(msg, isErr = false) {
-        if (isErr) {
-            investError.textContent = msg;
-            investError.style.display = 'block';
-            investResult.textContent = '';
-        } else {
-            investError.style.display = 'none';
-            investResult.textContent = msg;
-        }
-    }
-
-    function calcInvest() {
-        const amount = Number(investAmountInput.value);
-        const time = Number(investTimeSelect.value);
-
-        showInvestMsg('', false);
-
-        if (isNaN(amount) || amount <= 0 || investAmountInput.value.trim() === '') {
-            showInvestMsg('Please enter a valid positive number for the investment amount.', true);
-            return;
-        }
-
-        const futureValue = amount * Math.pow((1 + INVEST_RATE), time);
-        const totalInterest = futureValue - amount;
-        showInvestMsg(`Future Value: $${futureValue.toFixed(2)} (Earned: $${totalInterest.toFixed(2)})`);
-    }
 </script>
 <script src="js/bootstrap.bundle.js"></script>
 </body>

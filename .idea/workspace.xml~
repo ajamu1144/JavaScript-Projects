@@ -5,27 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eda78f7f-e28b-4700-8feb-414c25250201" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Hotel.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/flowers1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hotel.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hotel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lion.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ocls1.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ocls2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ocls3.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ohm1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arrary.html" beforeDir="false" afterPath="$PROJECT_DIR$/arrary.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/array_method.js" beforeDir="false" afterPath="$PROJECT_DIR$/array_method.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/class 1.html" beforeDir="false" afterPath="$PROJECT_DIR$/class 1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hotel.html" beforeDir="false" afterPath="$PROJECT_DIR$/Hotel.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/class 2.html" beforeDir="false" afterPath="$PROJECT_DIR$/class 2.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/class 2.js" beforeDir="false" afterPath="$PROJECT_DIR$/class 2.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/day2.html" beforeDir="false" afterPath="$PROJECT_DIR$/day2.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game.html" beforeDir="false" afterPath="$PROJECT_DIR$/game.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game.js" beforeDir="false" afterPath="$PROJECT_DIR$/game.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hotel.css" beforeDir="false" afterPath="$PROJECT_DIR$/hotel.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hotel.js" beforeDir="false" afterPath="$PROJECT_DIR$/hotel.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jsass3.html" beforeDir="false" afterPath="$PROJECT_DIR$/jsass3.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jsass3.js" beforeDir="false" afterPath="$PROJECT_DIR$/jsass3.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lo_and_co.html" beforeDir="false" afterPath="$PROJECT_DIR$/lo_and_co.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loop.html" beforeDir="false" afterPath="$PROJECT_DIR$/loop.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loop.js" beforeDir="false" afterPath="$PROJECT_DIR$/loop.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/object.html" beforeDir="false" afterPath="$PROJECT_DIR$/object.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -44,6 +34,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
@@ -70,6 +63,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -126,6 +120,13 @@
       <workItem from="1750152692230" duration="91000" />
       <workItem from="1716591600000" duration="873000" />
       <workItem from="1750155275765" duration="5646000" />
+      <workItem from="1750188279923" duration="232000" />
+      <workItem from="1750233303075" duration="1649000" />
+      <workItem from="1750235789154" duration="6588000" />
+      <workItem from="1750248675870" duration="1044000" />
+      <workItem from="1750322493662" duration="23433000" />
+      <workItem from="1750406016999" duration="18127000" />
+      <workItem from="1750428337364" duration="347000" />
     </task>
     <servers />
   </component>
