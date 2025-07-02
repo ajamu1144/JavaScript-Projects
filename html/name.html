@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Name</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <style>
+        * {
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+            margin: 20px 10px;
+            outline: none;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        nav{
+            padding: 0;
+            margin: 0;
+        }
+
+        .navbar {
+            background: #333;
+            color: #fff;
+            padding: 10px 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-left: 20px;
+        }
+
+        .nav-link {
+            color: black;
+            text-decoration: none;
+            padding: 5px 10px;
+            transition: background 0.3s ease;
+        }
+
+        .nav-link:hover {
+            background: #575757;
+            border-radius: 4px;
+        }
+
+        h1 {
+            font-size: 3em;
+        }
+
+        h4 span {
+            font-weight: bold;
+            font-size: 1.1em;
+            text-decoration: underline;
+            color: #1eaa50;
+        }
+
+        h4 {
+            font-weight: lighter;
+        }
+
+        input {
+            padding: 20px 20em 20px 15px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            background: #33333310;
+            font-weight: normal;
+            max-width: 100%;
+        }
+
+        button {
+            padding: 10px 7rem;
+            border-radius: 4em;
+            border: none;
+            background: #8be182;
+            font-weight: lighter;
+            transition: 0.5s all;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+
+        button:active {
+            transform: scale(1.08);
+        }
+
+        img {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+        }
+
+        @media (max-width: 600px) {
+            input {
+                padding: 20px 10em 20px 15px;
+            }
+
+            button {
+                padding: 10px 4rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+
+            input {
+                padding: 15px;
+                width: 100%;
+            }
+
+            button {
+                padding: 10px 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">Assignment</a>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Documentation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="object.html">About Me</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="class%202.html">Primes</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="jsass3.html">Multi Calculators</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="game.html">Guess my Number </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="name.html">Name Form Validation</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div>
+    <h1>Create your Account</h1>
+    <h4>Have an account? <span>Log In</span></h4>
+    <hr>
+    <h3>Account Details</h3>
+    <label for="email" id="emailLabel">Enter Email</label><br>
+    <input type="text" placeholder="Enter your Email" id="email" required><br>
+    <label for="userName" id="userLabel">Create a UserName</label><br>
+    <input type="text" placeholder="Enter a username" id="userName" required>
+    <p id="userNameError1" style="max-width: 500px"></p>
+    <label for="password" id="passLabel">Create a Password</label><br>
+    <input type="text" placeholder="Enter a password" id="password" required><br>
+    <p id="emailError" style="color:red; font-weight: normal;">Minimum length 7 characters</p>
+    <p id="userNameError" style="color:red; font-weight: normal;">Must contain 1 number/symbol</p>
+    <p id="passwordError" style="color:red; font-weight: normal;">Must contain 1 letter</p>
+    <button id="submit">Sumbit</button>
+</div>
+<div>
+    <img src="../name.webp" alt="name">
+</div>
+<script>
+    let emailVerified = false;
+    let userNameVerified = false;
+    let passwordVerified = false;
+    let passwordVerified2 = false;
+    let passwordVerified3 = false;
+    let email = document.getElementById('email');
+    let emailLabel = document.getElementById('emailLabel');
+    let emailExp = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    let userName = document.getElementById('userName');
+    let userNameExpression = /^[a-zA-Z0-9!.@_-]{6,60}$/;
+    let userNameExpression2 = /^[a-zA-Z0-9!.@_-]+$/;
+    let userLabel = document.getElementById('userLabel');
+    let password = document.getElementById('password');
+    let passLabel = document.getElementById('passLabel');
+    let maxChar = document.getElementById('emailError');
+    let maxCharExp = /^(?=.*[a-zA-Z]).{7,}$/;
+    let symbol = document.getElementById('userNameError');
+    let symbolExp = /[0-9\W]/;
+    let char = document.getElementById('userNameError');
+    let charExp = /[a-zA-Z]/;
+    let letter = document.getElementById('passwordError');
+    let submit = document.getElementById('submit');
+    let userNameError = document.getElementById('userNameError1');
+
+    email.addEventListener('input', function () {
+        if (!email.value.match(emailExp)) {
+            emailLabel.style.color = 'red';
+            email.style.border = '1px solid red';
+        }
+        else {
+            emailLabel.style.color = 'green';
+            email.style.border = '1px solid green';
+            emailVerified = true
+        }
+    });
+
+    userName.addEventListener('input', function () {
+        if (!userName.value.match(userNameExpression)) {
+            userNameError.style.color = 'red';
+            userNameError.textContent = "The username field must not be less than 6 characters and greater than 60 characters";
+        }
+        else if (!userName.value.match(userNameExpression2)) {
+            userNameError.style.color = 'red';
+            userNameError.textContent = "The username field must not contain special characters";
+        }
+        else {
+            userLabel.style.color = 'green';
+            userNameError.textContent = '';
+            userName.style.border = "1px solid green";
+            userNameVerified = true;
+        }
+    });
+
+    // function change(element, verification){
+    //     element.style.color = "green"
+    //     verification = true
+    // }
+
+    const change = (element) =>{
+        element.style.color = "green"
+        return true
+    }
+    const change2 = (element) =>{
+        element.style.color = "red"
+        return false
+    }
+
+    password.addEventListener('input', function () {
+        passwordVerified = password.value.match(maxCharExp) ? (maxChar.style.color = 'green', true) : change2(maxChar)
+        passwordVerified2 = password.value.match(symbolExp) ? change(symbol) : change2(symbol);
+        passwordVerified3 = password.value.match(charExp) ? change(letter) : change2(letter);
+    });
+
+    submit.addEventListener('click', function () {
+
+        if(emailVerified  === true && userNameVerified  === true && passwordVerified  === true && passwordVerified2  === true && passwordVerified3 === true){
+            window.alert('You are successfully signed In')
+            window.location.reload();
+        }
+
+        else{
+            window.alert('Fill in the necessary inputs CORRECTLY and try again!')
+        }
+    })
+
+</script>
+<script src="../js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

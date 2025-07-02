@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HomeWork</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        #h21{
+            font-family: Arial;
+            font-size: 4em;
+            color: white;
+            line-height: 4px;
+            margin-left: 10px;
+            position: relative;
+            background: #007BFF;
+            padding: 50px;
+        }
+
+
+        #h22{
+            font-family: Arial;
+            font-size: 2em;
+            color: white;
+            opacity: 0.75;
+            margin-left: 60px;
+            position: relative;
+        }
+
+        body{
+            background: url("../lion.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        div{
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+            background: lime;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            animation-name:box;
+            animation-duration: 10s;
+            animation-iteration-count: infinite;
+            animation-timing-function: ease-in-out;
+            opacity: 0.6;
+            align-items: end;
+        }
+
+
+    </style>
+</head>
+<body>
+        <h2 id="h21"></h2>
+        <h2 id="h22"></h2>
+    <script>
+
+        let h2 = document.querySelector('#h21')
+        let h22 = document.querySelector('#h22')
+        Time = new Date().getHours()
+        Day = new Date().getDay()
+        Days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+
+
+        if (Time >= 0 && Time < 13){
+            h2.innerHTML = 'Good Morning'
+        }
+        else if(Time >= 13 && Time < 15){
+            h2.innerHTML = 'Good AfterNoon'
+        }
+        else{
+            h2.innerHTML = 'Good Evening'
+        }
+
+        if (Day >= 1 && Day <= 4){
+            h22.innerHTML = `It is ${Days[Day]}. Go To Work`
+        }
+        else if(Day === 5){
+            h22.innerHTML = 'It is Friday. Let\'s Go To Mosque'
+        }
+        else if(Day === 6){
+            h22.innerHTML = 'It is Saturday. Let\'s Go Party'
+        }
+        else{
+            h22.innerHTML = `It is Sunday. Let\'s Go To Church`
+        }
+
+    </script>
+</body>
+</html>
