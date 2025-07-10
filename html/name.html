@@ -2,11 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Name</title>
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <title>Account Creation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css">
     <style>
         * {
             font-family: Arial, Helvetica, sans-serif;
@@ -21,9 +20,10 @@
             justify-content: center;
             gap: 40px;
             margin: 0 !important;
+            background-color: #f8f9fa;
         }
 
-        nav{
+        nav {
             padding: 20px;
             margin: 0 !important;
             width: 100vw;
@@ -33,24 +33,28 @@
             background: #333;
             color: #fff;
             padding: 10px 0;
+            border-radius: 8px;
         }
 
-        .container {
-            width: 80%;
+        .container-fluid {
+            width: 90%;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        .logo {
+        .navbar-brand {
             font-size: 1.8rem;
             font-weight: bold;
+            color: #fff !important;
         }
 
         .nav-links {
             list-style: none;
             display: flex;
+            margin: 0;
+            padding: 0;
         }
 
         .nav-links li {
@@ -58,19 +62,21 @@
         }
 
         .nav-link {
-            color: black;
+            color: #fff !important;
             text-decoration: none;
-            padding: 5px 10px;
+            padding: 8px 15px;
             transition: background 0.3s ease;
+            border-radius: 4px;
         }
 
         .nav-link:hover {
             background: #575757;
-            border-radius: 4px;
         }
 
         h1 {
-            font-size: 3em;
+            font-size: 2.5em;
+            text-align: center;
+            color: #333;
         }
 
         h4 span {
@@ -78,73 +84,184 @@
             font-size: 1.1em;
             text-decoration: underline;
             color: #1eaa50;
-        }
-
-        .svg{
-            width: 20px;
+            cursor: pointer;
         }
 
         h4 {
             font-weight: lighter;
+            text-align: center;
+            color: #666;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        .form-container {
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            max-width: 500px;
+            width: 90%; /* Make it fluid */
+            margin: 20px auto;
+            border: 1px solid #eee;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            background-color: #fff;
+        }
+
+        .input-group {
+            position: relative;
+            margin-bottom: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #555;
         }
 
         input {
-            padding: 20px 20em 20px 15px;
-            border-radius: 10px;
+            padding: 12px 40px 12px 15px; /* Adjusted padding for icon */
+            border-radius: 8px;
             border: 1px solid #ccc;
-            background: #33333310;
+            background: #f0f0f0;
             font-weight: normal;
-            max-width: 100%;
+            width: 100%;
+            box-sizing: border-box;
+            font-size: 16px;
         }
 
+        .error-icon {
+            position: absolute;
+            right: 10px;
+            top: 50%; /* Adjusted for label */
+            transform: translateY(-50%); /* Adjusted for label */
+            height: 20px;
+            width: 20px;
+        }
+        .input-group:nth-of-type(1) .error-icon,
+        .input-group:nth-of-type(2) .error-icon {
+            top: calc(50% + 14px); /* Adjust for label height */
+        }
+        .input-group:nth-of-type(3) .error-icon {
+            top: calc(50% + 14px); /* Adjust for label height */
+        }
+
+
         button {
-            padding: 10px 7rem;
-            border-radius: 4em;
+            padding: 12px 20px;
+            border-radius: 8px;
             border: none;
             background: #8be182;
-            font-weight: lighter;
+            font-weight: bold;
             transition: 0.5s all;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            width: 100%; /* Make button fluid */
         }
 
         button:hover {
-            opacity: 0.8;
+            opacity: 0.9;
+            background-color: #7acb70;
         }
 
         button:active {
-            transform: scale(1.08);
+            transform: scale(0.98);
         }
 
-        img {
+        .error-message {
+            color: red;
+            font-weight: normal;
+            font-size: 14px;
+            margin-top: 8px;
+            margin-bottom: 0;
+            max-width: 100%;
+            word-wrap: break-word;
+        }
+
+        .bottom-image-container {
             width: 100%;
             max-width: 500px;
-            height: auto;
-            margin-right: 90px;
+            margin-top: 20px;
+            text-align: center;
         }
 
-        @media (max-width: 600px) {
+        .bottom-image {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .container-fluid {
+                width: 95%;
+            }
+
+            .navbar-toggler {
+                display: block;
+            }
+
+            .navbar-collapse {
+                flex-grow: 0;
+            }
+
+            .navbar-nav {
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+                margin-top: 10px;
+            }
+
+            .nav-links li {
+                margin: 5px 0;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            .form-container {
+                padding: 15px;
+                width: 95%;
+            }
+
             input {
-                padding: 20px 10em 20px 15px;
+                padding: 12px 40px 12px 10px;
             }
 
             button {
-                padding: 10px 4rem;
+                padding: 10px 15px;
             }
         }
 
         @media (max-width: 480px) {
             body {
-                flex-direction: column;
-                align-items: center;
                 gap: 20px;
             }
 
-            input {
-                padding: 15px;
-                width: 100%;
+            h1 {
+                font-size: 1.8em;
             }
 
-            button {
-                padding: 10px 2rem;
+            h4 {
+                font-size: 0.9em;
+            }
+
+            .form-container {
+                margin: 10px auto;
+                padding: 10px;
+            }
+
+            .error-message {
+                font-size: 12px;
+            }
+
+            .bottom-image-container {
+                margin-top: 10px;
             }
         }
     </style>
@@ -184,26 +301,40 @@
         </div>
     </div>
 </nav>
-<div style="display: flex; flex-direction: column;">
+<div class="form-container">
     <h1>Create your Account</h1>
     <h4>Have an account? <span>Log In</span></h4>
-    <hr>
+    <hr style="border: none; border-top: 1px solid #ddd; margin-bottom: 20px;">
     <h3>Account Details</h3>
-    <label for="email" id="emailLabel">Enter Email</label><br>
-    <input type="text" placeholder="Enter your Email" id="email" required> <img src="error_icon.svg" alt="error" height="20" class="svg" width="50"><br>
-    <label for="userName" id="userLabel">Create a UserName</label><br>
-    <input type="text" placeholder="Enter a username" id="userName" required>  <img src="error_icon.svg" alt="error" height="20" class="svg" width="50">
-    <p id="userNameError1" style="max-width: 500px"></p>
-    <label for="password" id="passLabel">Create a Password</label><br>
-    <input type="text" placeholder="Enter a password" id="password" required><br>  <img src="error_icon.svg" alt="error" height="20" class="svg" width="50">
-    <p id="emailError" style="color:red; font-weight: normal;">Minimum length 7 characters</p>
-    <p id="userNameError" style="color:red; font-weight: normal;">Must contain 1 number/symbol</p>
-    <p id="passwordError" style="color:red; font-weight: normal;">Must contain 1 letter</p>
-    <button id="submit">Sumbit</button>
+
+    <div class="input-group">
+        <label for="email" id="emailLabel">Enter Email</label>
+        <input type="text" placeholder="Enter your Email" id="email" required>
+        <img src="https://placehold.co/20x20/FF0000/FFFFFF?text=X" alt="error" class="error-icon">
+        <p id="emailError" class="error-message">Minimum length 7 characters</p>
+    </div>
+
+    <div class="input-group">
+        <label for="userName" id="userLabel">Create a UserName</label>
+        <input type="text" placeholder="Enter a username" id="userName" required>
+        <img src="https://placehold.co/20x20/FF0000/FFFFFF?text=X" alt="error" class="error-icon">
+        <p id="userNameError1" class="error-message"></p>
+        <p id="userNameError" class="error-message">Must contain 1 number/symbol</p>
+    </div>
+
+    <div class="input-group">
+        <label for="password" id="passLabel">Create a Password</label>
+        <input type="text" placeholder="Enter a password" id="password" required>
+        <img src="https://placehold.co/20x20/FF0000/FFFFFF?text=X" alt="error" class="error-icon">
+        <p id="passwordError" class="error-message">Must contain 1 letter</p>
+    </div>
+
+    <button id="submit">Submit</button>
 </div>
-<div>
-    <img src="../name.webp" alt="name">
+<div class="bottom-image-container">
+    <img src="https://placehold.co/500x300/E0E0E0/333333?text=Placeholder+Image" alt="name" class="bottom-image">
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
 <script>
     let emailVerified = false;
     let userNameVerified = false;
@@ -220,11 +351,8 @@
     let password = document.getElementById('password');
     let passLabel = document.getElementById('passLabel');
     let maxChar = document.getElementById('emailError');
-    let maxCharExp = /^(?=.*[a-zA-Z]).{7,}$/;
     let symbol = document.getElementById('userNameError');
-    let symbolExp = /[0-9\W]/;
     let char = document.getElementById('userNameError');
-    let charExp = /[a-zA-Z]/;
     let letter = document.getElementById('passwordError');
     let submit = document.getElementById('submit');
     let userNameError = document.getElementById('userNameError1');
@@ -245,15 +373,15 @@
         emailValidate()
     });
 
-    function userNameValidate(isTrue) {
+    function userNameValidate() {
         if (!userName.value.match(userNameExpression)) {
             userNameError.style.color = 'red';
             userNameError.textContent = "The username field must not be less than 6 characters and greater than 60 characters";
-            userName.style.border = '1px sold red'
+            userName.style.border = '1px solid red';
         } else if (!userName.value.match(userNameExpression2)) {
             userNameError.style.color = 'red';
             userNameError.textContent = "The username field must not contain special characters";
-            userName.style.border = '1px sold red'
+            userName.style.border = '1px solid red';
         } else {
             userLabel.style.color = 'green';
             userNameError.textContent = '';
@@ -266,11 +394,6 @@
         userNameValidate()
     });
 
-    // function change(element, verification){
-    //     element.style.color = "green"
-    //     verification = true
-    // }
-
     const change = (element) =>{
         element.style.color = "green"
         return true
@@ -281,7 +404,11 @@
     }
 
     function validatePassword(){
-        passwordVerified = password.value.match(maxCharExp) ? (maxChar.style.color = 'green', true) : change2(maxChar);
+        const maxCharExp = /^(?=.*[a-zA-Z]).{7,}$/;
+        const symbolExp = /[0-9\W]/;
+        const charExp = /[a-zA-Z]/;
+
+        passwordVerified = password.value.match(maxCharExp) ? change(maxChar) : change2(maxChar);
         passwordVerified2 = password.value.match(symbolExp) ? change(symbol) : change2(symbol);
         passwordVerified3 = password.value.match(charExp) ? change(letter) : change2(letter);
     }
@@ -292,8 +419,9 @@
 
     submit.addEventListener('click', function () {
         if(emailVerified  === true && userNameVerified  === true && passwordVerified  === true && passwordVerified2  === true && passwordVerified3 === true){
-            // window.alert('You are successfully signed In')
-            window.location.reload();
+            // In a real application, you would handle successful sign-in here, e.g., redirect
+            console.log('You are successfully signed In');
+            // window.location.reload(); // Reloading might not be desired for actual sign-in
         }
 
         else{
@@ -304,6 +432,6 @@
     });
 
 </script>
-<script src="../js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
