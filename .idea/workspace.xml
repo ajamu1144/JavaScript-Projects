@@ -5,26 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eda78f7f-e28b-4700-8feb-414c25250201" name="Changes" comment="changed">
-      <change afterPath="$PROJECT_DIR$/html/birthday.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/html/taxiMan.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/html/uber.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/swiftRide.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uber.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hotel.css" beforeDir="false" afterPath="$PROJECT_DIR$/javascript/uber.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/arrary.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/arrary.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/class 2.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/class 2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/day2.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/day2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/game.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/game.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/jsass3.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/jsass3.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/lo_and_co.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/lo_and_co.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/loopass.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/loopass.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/html/name.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/name.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/object.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/object.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/time2.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/time2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/to-do.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/to-do.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javascript/array_method.js" beforeDir="false" afterPath="$PROJECT_DIR$/javascript/array_method.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javascript/game.js" beforeDir="false" afterPath="$PROJECT_DIR$/javascript/game.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,7 +143,7 @@
       <workItem from="1751875782332" duration="8927000" />
       <workItem from="1751886771089" duration="3342000" />
       <workItem from="1752047225866" duration="8732000" />
-      <workItem from="1752133923992" duration="6812000" />
+      <workItem from="1752133923992" duration="8928000" />
     </task>
     <task id="LOCAL-00001" summary="changed">
       <option name="closed" value="true" />

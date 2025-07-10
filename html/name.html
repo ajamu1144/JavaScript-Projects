@@ -80,6 +80,10 @@
             color: #1eaa50;
         }
 
+        .svg{
+            width: 20px;
+        }
+
         h4 {
             font-weight: lighter;
         }
@@ -186,12 +190,12 @@
     <hr>
     <h3>Account Details</h3>
     <label for="email" id="emailLabel">Enter Email</label><br>
-    <input type="text" placeholder="Enter your Email" id="email" required><br>
+    <input type="text" placeholder="Enter your Email" id="email" required> <img src="error_icon.svg" alt="error" height="20" class="svg" width="50"><br>
     <label for="userName" id="userLabel">Create a UserName</label><br>
-    <input type="text" placeholder="Enter a username" id="userName" required>
+    <input type="text" placeholder="Enter a username" id="userName" required>  <img src="error_icon.svg" alt="error" height="20" class="svg" width="50">
     <p id="userNameError1" style="max-width: 500px"></p>
     <label for="password" id="passLabel">Create a Password</label><br>
-    <input type="text" placeholder="Enter a password" id="password" required><br>
+    <input type="text" placeholder="Enter a password" id="password" required><br>  <img src="error_icon.svg" alt="error" height="20" class="svg" width="50">
     <p id="emailError" style="color:red; font-weight: normal;">Minimum length 7 characters</p>
     <p id="userNameError" style="color:red; font-weight: normal;">Must contain 1 number/symbol</p>
     <p id="passwordError" style="color:red; font-weight: normal;">Must contain 1 letter</p>
@@ -241,7 +245,7 @@
         emailValidate()
     });
 
-    function userNameValidate() {
+    function userNameValidate(isTrue) {
         if (!userName.value.match(userNameExpression)) {
             userNameError.style.color = 'red';
             userNameError.textContent = "The username field must not be less than 6 characters and greater than 60 characters";
@@ -249,6 +253,7 @@
         } else if (!userName.value.match(userNameExpression2)) {
             userNameError.style.color = 'red';
             userNameError.textContent = "The username field must not contain special characters";
+            userName.style.border = '1px sold red'
         } else {
             userLabel.style.color = 'green';
             userNameError.textContent = '';
