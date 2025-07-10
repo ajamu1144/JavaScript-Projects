@@ -1,33 +1,10 @@
-// let h3 = document.getElementById('h3');
-// let button = document.getElementById('btn');
-// let input= document.getElementById('inp');
-
-// let newCountries = ['gUanda', 'U.S', 'Mexico', 'zealand', 'scotland']
-
-// function add() {
-// 	newCountries.push(input.value)
-// 	console.log('newCountries')
-// }
-
-// button.addEventListener('click', function() {
-
-// });
-
-let getContainer = document.getElementById('div')
-getContainer.appendChild(ul);
-
-function addlistitem(){
-	let li = document.createElement('li')
-	let getname = document.getElementById('getName')
-let ul = document.createElement('ul');
-
-	li.innerText = name.value;
-
-	ul.appendChild(li)
-}
-let li = document.createElement('li');
-
-ul.appendChild(li)
-
-getName.value = ""
-getname.focus()
+let inp = document.getElementById("inp");
+let btn = document.getElementById("btn");
+let ul = document.getElementById("ul");
+btn.addEventListener("click", function(){
+	let text = inp.value;
+	let textNode = document.createTextNode(text);
+	let li = document.createElement("li");
+	li.appendChild(textNode);
+	ul.insertBefore(li, ul.firstChild);
+})

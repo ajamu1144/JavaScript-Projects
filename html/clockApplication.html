@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+  <style>
+    body{
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      gap: 10px;
+      font-family: sans-serif;
+      text-align: center;
+    }
+    h1{
+      font-size: 15vw;
+      margin: 0;
+    }
+    h2{
+      font-size: 5vw;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="clock">
+
+  </h1>
+  <h2 id="date">
+      <span id="day"></span>
+      <span id="dateNum"></span>
+      <span id="month"></span>
+  </h2>
+<script>
+  let mainH1 = document.getElementById('clock');
+  let hour = document.getElementById('hour');
+  let minute = document.getElementById('minute');
+  let second = document.getElementById('second');
+  let days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+  let months = ["January", "February", 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  let date = document.getElementById('date');
+  let month = document.getElementById('month');
+  let day = document.getElementById('day');
+  let dateNum = document.getElementById('dateNum');
+  let interval = setInterval(function(){
+    let now = new Date()
+     mainH1.textContent = `${now.getHours().toString().padStart(2, "0")} :
+     ${now.getMinutes().toString().padStart(2, "0")}  : ${now.getSeconds().toString().padStart(2, "0")}`
+      date.textContent = `${days[now.getDay()]}, ${now.getDate()} ${months[now.getMonth()]}`
+    }, 1000)
+</script>
+</body>
+</html>

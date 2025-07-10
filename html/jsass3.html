@@ -7,19 +7,14 @@
     <title>All-in-One Calculators</title>
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <style>
-        *{
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
         body {
             font-family: 'Inter', sans-serif;
             background: linear-gradient(to right, #2d3748, #1a202c);
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
+            /*display: flex;*/
+            /*flex-direction: column;*/
             align-items: center;
-            padding: 1rem;
+            /*padding: 1rem;*/
             color: #e0e0e0;
             font-size: 16px;
         }
@@ -328,11 +323,11 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand" href="index.html">Assignment</a>
+        <a class="navbar-brand" href="../index.html">Assignment</a>
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" href="index.html">Documentation</a>
+                    <a class="nav-link" href="../index.html">Documentation</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="object.html">About Me</a>
@@ -349,6 +344,9 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="name.html">Name Form Validation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="uber.html">Uber App</a>
                 </li>
             </ul>
         </div>
@@ -384,10 +382,10 @@
             <input type="text" id="secondNum" class="common-input">
         </div>
         <div id="calc-buttons">
-            <button id="plusBtn" class="common-button">+</button>
-            <button id="minusBtn" class="common-button">-</button>
-            <button id="divideBtn" class="common-button">/</button>
-            <button id="multiBtn" class="common-button">*</button>
+            <button id="plusBtn" class="common-button calcBtn">+</button>
+            <button id="minusBtn" class="common-button calcBtn">-</button>
+            <button id="divideBtn" class="common-button calcBtn">/</button>
+            <button id="multiBtn" class="common-button calcBtn">*</button>
         </div>
         <h3 id="basic-calc-result"></h3>
     </div>
@@ -445,7 +443,7 @@
     const calculateBtn = document.getElementById('calculateBtn');
     const retirementStatus = document.getElementById('retirementStatus');
     const ageErrorDisplay = document.getElementById('ageError');
-
+    let commonBtns = document.querySelectorAll('.calcBtn')
     const currentYear = new Date().getFullYear();
     const RETIRE_AGE = 55;
     const stats = document.getElementById('stats')
@@ -495,7 +493,7 @@
     const multiBtn = document.getElementById('multiBtn');
 
     function validateNums(n1, n2, resultElem) {
-        if (isNaN(n1) || n1.toString().trim() === '' || isNaN(n2) || n2.toString().trim() === '') {
+        if (isNaN(n1) || n1.toString().trim() === '' || isNaN(n2) || n2.toString().trim() === '' ) {
             resultElem.textContent = 'Enter valid numbers.';
             resultElem.style.color = '#fc8181';
             return false;
@@ -504,46 +502,49 @@
         return true;
     }
 
-    plusBtn.addEventListener('click', () => {
-        const n1 = Number(firstNumInput.value);
-        const n2 = Number(secondNumInput.value);
-        opSpan.textContent = '+';
-        if (validateNums(n1, n2, basicCalcResult)) {
-            basicCalcResult.textContent = `Result: ${n1 + n2}`;
-        }
-    });
 
-    minusBtn.addEventListener('click', () => {
-        const n1 = Number(firstNumInput.value);
-        const n2 = Number(secondNumInput.value);
-        opSpan.textContent = '-';
-        if (validateNums(n1, n2, basicCalcResult)) {
-            basicCalcResult.textContent = `Result: ${n1 - n2}`;
-        }
-    });
-
-    divideBtn.addEventListener('click', () => {
-        const n1 = Number(firstNumInput.value);
-        const n2 = Number(secondNumInput.value);
-        opSpan.textContent = '/';
-        if (validateNums(n1, n2, basicCalcResult)) {
-            if (n2 === 0) {
-                basicCalcResult.textContent = 'Cannot divide by zero.';
-                basicCalcResult.style.color = '#fc8181';
-            } else {
-                basicCalcResult.textContent = `Result: ${n1 / n2}`;
+    commonBtns.forEach((btn) =>{
+        btn.addEventListener('click', function() {
+            let buttonId = btn.id;
+            console.log(buttonId)
+            if(buttonId === "plusBtn"){
+                const n1 = Number(firstNumInput.value);
+                    const n2 = Number(secondNumInput.value);
+                    opSpan.textContent = '+';
+                    if (validateNums(n1, n2, basicCalcResult)) {
+                        basicCalcResult.textContent = `Result: ${n1 + n2}`;
+                    }
             }
-        }
-    });
-
-    multiBtn.addEventListener('click', () => {
-        const n1 = Number(firstNumInput.value);
-        const n2 = Number(secondNumInput.value);
-        opSpan.textContent = '*';
-        if (validateNums(n1, n2, basicCalcResult)) {
-            basicCalcResult.textContent = `Result: ${n1 * n2}`;
-        }
-    });
+            else if(buttonId === "minusBtn"){
+                const n1 = Number(firstNumInput.value);
+                    const n2 = Number(secondNumInput.value);
+                    opSpan.textContent = '-';
+                    if (validateNums(n1, n2, basicCalcResult)) {
+                        basicCalcResult.textContent = `Result: ${n1 - n2}`;
+                    }
+            }
+            else if (buttonId === 'divideBtn'){
+                const n1 = Number(firstNumInput.value);
+                const n2 = Number(secondNumInput.value);
+                if (validateNums(n1, n2, basicCalcResult)) {
+                            if (n2 === 0) {
+                                basicCalcResult.textContent = 'Cannot divide by zero.';
+                                basicCalcResult.style.color = '#fc8181';
+                            } else {
+                                basicCalcResult.textContent = `Result: ${n1 / n2}`;
+                            }
+                        }
+            }
+            else if(buttonId === 'multiBtn'){
+                const n1 = Number(firstNumInput.value);
+                    const n2 = Number(secondNumInput.value);
+                    opSpan.textContent = '*';
+                    if (validateNums(n1, n2, basicCalcResult)) {
+                        basicCalcResult.textContent = `Result: ${n1 * n2}`;
+                    }
+            }
+        })
+    })
 
     let loanInput = document.getElementById('loanAmountInput');
     let selector = document.getElementById('loanTimeSelect')

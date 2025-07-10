@@ -11,7 +11,6 @@
         * {
             font-family: Arial, Helvetica, sans-serif;
             font-weight: bold;
-            margin: 20px 10px;
             outline: none;
             box-sizing: border-box;
         }
@@ -21,11 +20,13 @@
             flex-wrap: wrap;
             justify-content: center;
             gap: 40px;
+            margin: 0 !important;
         }
 
         nav{
-            padding: 0;
-            margin: 0;
+            padding: 20px;
+            margin: 0 !important;
+            width: 100vw;
         }
 
         .navbar {
@@ -113,6 +114,7 @@
             width: 100%;
             max-width: 500px;
             height: auto;
+            margin-right: 90px;
         }
 
         @media (max-width: 600px) {
@@ -149,11 +151,11 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand" href="index.html">Assignment</a>
+        <a class="navbar-brand" href="../index.html">Assignment</a>
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 p-lg-3">
                 <li class="nav-item">
-                    <a class="nav-link" href="index.html">Documentation</a>
+                    <a class="nav-link" href="../index.html">Documentation</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="object.html">About Me</a>
@@ -171,11 +173,14 @@
                 <li class="nav-item">
                     <a class="nav-link" href="name.html">Name Form Validation</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="uber.html">Uber App</a>
+                </li>
             </ul>
         </div>
     </div>
 </nav>
-<div>
+<div style="display: flex; flex-direction: column;">
     <h1>Create your Account</h1>
     <h4>Have an account? <span>Log In</span></h4>
     <hr>
@@ -220,7 +225,7 @@
     let submit = document.getElementById('submit');
     let userNameError = document.getElementById('userNameError1');
 
-    email.addEventListener('input', function () {
+    function emailValidate(){
         if (!email.value.match(emailExp)) {
             emailLabel.style.color = 'red';
             email.style.border = '1px solid red';
@@ -230,23 +235,30 @@
             email.style.border = '1px solid green';
             emailVerified = true
         }
+    }
+
+    email.addEventListener('input', function () {
+        emailValidate()
     });
 
-    userName.addEventListener('input', function () {
+    function userNameValidate() {
         if (!userName.value.match(userNameExpression)) {
             userNameError.style.color = 'red';
             userNameError.textContent = "The username field must not be less than 6 characters and greater than 60 characters";
-        }
-        else if (!userName.value.match(userNameExpression2)) {
+            userName.style.border = '1px sold red'
+        } else if (!userName.value.match(userNameExpression2)) {
             userNameError.style.color = 'red';
             userNameError.textContent = "The username field must not contain special characters";
-        }
-        else {
+        } else {
             userLabel.style.color = 'green';
             userNameError.textContent = '';
             userName.style.border = "1px solid green";
             userNameVerified = true;
         }
+    }
+
+    userName.addEventListener('input', function () {
+        userNameValidate()
     });
 
     // function change(element, verification){
@@ -263,23 +275,28 @@
         return false
     }
 
-    password.addEventListener('input', function () {
-        passwordVerified = password.value.match(maxCharExp) ? (maxChar.style.color = 'green', true) : change2(maxChar)
+    function validatePassword(){
+        passwordVerified = password.value.match(maxCharExp) ? (maxChar.style.color = 'green', true) : change2(maxChar);
         passwordVerified2 = password.value.match(symbolExp) ? change(symbol) : change2(symbol);
         passwordVerified3 = password.value.match(charExp) ? change(letter) : change2(letter);
+    }
+
+    password.addEventListener('input', function () {
+        validatePassword()
     });
 
     submit.addEventListener('click', function () {
-
         if(emailVerified  === true && userNameVerified  === true && passwordVerified  === true && passwordVerified2  === true && passwordVerified3 === true){
-            window.alert('You are successfully signed In')
+            // window.alert('You are successfully signed In')
             window.location.reload();
         }
 
         else{
-            window.alert('Fill in the necessary inputs CORRECTLY and try again!')
+            validatePassword()
+            userNameValidate()
+            emailValidate()
         }
-    })
+    });
 
 </script>
 <script src="../js/bootstrap.bundle.min.js"></script>

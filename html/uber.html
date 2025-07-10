@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>swiftRide</title>
+    <link rel="stylesheet" href="../uber.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">Assignment</a>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="../index.html">Documentation</a>
+                </li>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="object.html">About Me</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="class 2.html">Primes</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="jsass3.html">Multi Calculators</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="game.html">Guess my Number </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="name.html">Name Form Validation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="uber.html">Uber App</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+    <main>
+            <div id="mainInter" class="flex-column">
+                <img src="../swiftRide.png" alt="taxi" width="400" class="align-self-center">
+                <label for="formInp">Enter Current Destination</label>
+                <input type="text" name="" id="formInp">
+                <p style="color: red;" id="currDestinationError">⚠️ This Destination cant Include numbers, special characters
+                    <br>nor trailing spaces</p> <br>
+                <label for="formInp">Enter Destination</label>
+                <input type="text" name="" id="formInp2">
+                <p style="color: red;" id="currDestinationError2">⚠️ This Destination cant Include numbers, special characters
+                    <br>nor trailing spaces</p>
+                <button id="sumbit">Submit Destinations</button>
+                <div id="spinner" style="align-self: center;"></div>
+            </div>
+
+            <div id="confirmation">
+                <h1 id="confirmationH1">You are agreeing to book a ride from <span id="span1"></span> to <span id="span2"></span></h1>
+                <button id="editRide">Edit Ride </button>
+                <button id="bookRide">Book Ride</button>
+            </div>
+
+            <div id="timer">
+                <h1 id="timerDisplay">00:00:00</h1>
+                <div id="buttons">
+                    <button id="startRide">Start Ride</button>
+                    <button id="pauseRide">Pause Ride</button>
+                    <button id="continueRide">Continue Ride</button>
+                    <button id="endRide">End Ride</button>
+                </div>
+            </div>
+
+            <div id="receipt">
+                <img src="taxiMan.png" width="400" alt=""> <br>
+                <h2>Thank you for riding with Swift Ride</h2> <br>
+
+                <p>----------------------------------------------------------------------------------------------</p>
+                    <h2 style="text-align: center;">Receipt</h2>
+                <p>----------------------------------------------------------------------------------------------</p>
+                <h3 id="fare">Base Fare:  ₦1000</h3>
+                <hr>
+                <h3 id="timeTaken">Time Taken: ₦ </h3>
+                <hr>
+                <h3 id="timeFare">Time Fare: ₦ </h3>
+                <hr>
+                <h3 id="initialTotal">Initial total: ₦ </h3>
+                <hr>
+                <h3 id="tax">Tax(10%): ₦ </h3>
+                <hr>
+                <h3 id="totalAmount">Payable amount: ₦ </h3>
+            </div>
+    </main>
+    <script src="../javascript/uber.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+

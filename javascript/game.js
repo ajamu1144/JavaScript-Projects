@@ -6,7 +6,7 @@ let chance = 0;
 let value = document.getElementById('body')
 let score = document.getElementById('score')
 let highest = document.getElementById('highest')
-let scr = 0
+let scr = 25
 let body = document.getElementById("bdy")
 let reset = document.getElementById('reset')
 
@@ -15,9 +15,11 @@ function main(){
     let inputValue = parseInt(input.value);
 
     if(smth === 0) {
+        scr-=5
         // input.value = ''
         result.style.color = 'red'
         result.textContent = `Sorry You Lost, The Number was ${randomNum} 😢😢😢😭😭😭💀💀💀💀💀`
+        highest.innerHTML = `YOUR SCORE IS ${scr}`
         body.style.backgroundColor = 'red'
         reset.style.display = 'block'
         myButton.style.display = 'none'
@@ -31,13 +33,13 @@ function main(){
 
     else if (inputValue === randomNum) {
         input.value = ''
-        scr += 5
-        result.innerHTML = `Wow, you won! The number was ${randomNum} <br> the Number is Now Changed`;
+        result.innerHTML = `Wow, you won! The number was ${randomNum} and you have a score of ${scr} points`;
+        highest.style.display = 'none'
         result.style.color = 'lime'
-        score.textContent = `Score: ${scr}`
         randomNum = Math.floor(Math.random()* 20) + 50;
+        reset.style.display = 'block'
+        myButton.style.display = 'none'
         highest.innerHTML = `HIGHEST SCORE : ${scr}`
-        smth = 4
         console.log(randomNum)
     }
     else if (inputValue < 50 || inputValue > 70) {
@@ -52,16 +54,20 @@ function main(){
     else if(inputValue > randomNum){
         input.value = ''
         smth-=1
+        scr-=5
         result.textContent = `The number is less than ${inputValue}, Now you have ${smth + 1} more ${smth === 0 ? "chance" : "chances"}`;
         result.style.color= "blue"
+        highest.innerHTML = `HIGHEST SCORE : ${scr}`
         console.log(smth)
     }
     else if(inputValue < randomNum){
         input.value = ''
         smth-=1;
+        scr-=5
         result.textContent =`The number is more than ${inputValue}, Now you have ${smth + 1} more ${smth === 0 ? "chance" : "chances"}`
         result.style.color = 'yellow'
         // smth <= 0 ? result.textContent = `GAME OVER THE NUMBER WAS ${randomNum}` : smth;
+        highest.innerHTML = `HIGHEST SCORE : ${scr}`
         console.log(smth)
     }
     else {
