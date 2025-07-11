@@ -138,8 +138,13 @@
         setInterval(main, 1000)
     })
 
+    function createTr(trElement) {
+        trElement = document.createElement('tr')
+        return trElement;
+    }
 
-    function main(){
+
+    function calculateValues() {
         let now = new Date();
         let futureDate = new Date(dateSelector.value);
         const timeDifferenceMs = futureDate - now;
@@ -153,13 +158,29 @@
         let minutesText = document.createTextNode(minutes.toString())
         let secondsText = document.createTextNode(seconds.toString())
         console.log(`${days}:${hours}:${minutes}:${seconds}`);
+        let object = {
+            days : days,
+            hours : hours,
+            minute : minutes,
+            seconds : seconds
+        }
+        console.log(object)
+        return object;
+    }
+
+    function appendElements() {
+        createTr().appendChild(calculateValues());
+    }
+
+    calculateValues()
+    function main(){
         let userName = document.getElementById('userName');
         let tableRow = document.createElement('tr');
         let tableRowNameDetail = document.createElement('td');
         let tableRowBirthDetail = document.createElement('td');
         let tableRowCountDownDetail = document.createElement('td');
         let nameValue = document.createTextNode(userName.value);
-        let birthDay = document.createTextNode(dateSelector.value);drtcfgvhfcgb
+        let birthDay = document.createTextNode(dateSelector.value);
         let daySpan = document.createElement('span');
         let hourSpan = document.createElement('span');
         let minuteSpan = document.createElement('span');
