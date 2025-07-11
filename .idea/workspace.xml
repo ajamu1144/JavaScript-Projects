@@ -6,7 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="eda78f7f-e28b-4700-8feb-414c25250201" name="Changes" comment="changed">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/birthday.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/birthday.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/html/name.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/name.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/to-do.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/to-do.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javascript/to-do.js" beforeDir="false" afterPath="$PROJECT_DIR$/javascript/to-do.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,39 +39,41 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;JavaScript Debug.ocls2.html.executor&quot;: &quot;Run&quot;,
-    &quot;JavaScript Debug.wow.html.executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;Node.js.game.js.executor&quot;: &quot;Run&quot;,
-    &quot;Node.js.ocls1.js.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/HP USER/Desktop/J.S Class&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "JavaScript Debug.ocls2.html.executor": "Run",
+    "JavaScript Debug.wow.html.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Node.js.game.js.executor": "Run",
+    "Node.js.ocls1.js.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "test-app",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/HP USER/Desktop/J.S Class/javascript",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.keymap",
+    "settings.editor.splitter.proportion": "0.24668705",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\HP USER\Desktop\J.S Class\javascript" />
       <recent name="C:\Users\User\Desktop\J.S Class" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\HP USER\Desktop\J.S Class\html" />
-      <recent name="C:\Users\HP USER\Desktop\J.S Class\" />
       <recent name="C:\Users\HP USER\Desktop\J.S Class" />
       <recent name="C:\Users\HP USER\Desktop\J.S Class\javascript" />
+      <recent name="C:\Users\HP USER\Desktop\J.S Class\html" />
+      <recent name="C:\Users\HP USER\Desktop\J.S Class\" />
       <recent name="C:\Users\User\Desktop\J.S Class" />
     </key>
   </component>
@@ -143,7 +148,9 @@
       <workItem from="1751875782332" duration="8927000" />
       <workItem from="1751886771089" duration="3342000" />
       <workItem from="1752047225866" duration="8732000" />
-      <workItem from="1752133923992" duration="12100000" />
+      <workItem from="1752133923992" duration="26925000" />
+      <workItem from="1752219426149" duration="17490000" />
+      <workItem from="1752239073562" duration="2725000" />
     </task>
     <task id="LOCAL-00001" summary="changed">
       <option name="closed" value="true" />
