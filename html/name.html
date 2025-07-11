@@ -215,7 +215,7 @@
     let passwordVerified = false;
     let passwordVerified2 = false;
     let passwordVerified3 = false;
-    let svg = document.getElementsByClassName('svg`')
+    let svg = document.getElementsByClassName('svg')
     let email = document.getElementById('email');
     let emailLabel = document.getElementById('emailLabel');
     let emailExp = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -251,30 +251,22 @@
         emailValidate()
     });
 
-    function userNameValidate(isTrue) {
+    function userNameValidate() {
         if (!userName.value.match(userNameExpression)) {
             userNameError.style.color = 'red';
             userNameError.textContent = "The username field must not be less than 6 characters and greater than 60 characters";
             userName.style.border = '1px sold red'
+            userNameVerified = false;
         } else if (!userName.value.match(userNameExpression2)) {
             userNameError.style.color = 'red';
             userNameError.textContent = "The username field must not contain special characters";
             userName.style.border = '1px sold red'
+            userNameVerified = false;
         } else {
             userLabel.style.color = 'green';
             userNameError.textContent = '';
             userName.style.border = "1px solid green";
             userNameVerified = true;
-        }
-        if(isTrue){
-            svg.forEach(img => {
-                svg.style.display = 'flex'
-            })
-        }
-        else{
-            svg.forEach(img => {
-                svg.style.display = 'none'
-            })
         }
     }
 
@@ -323,3 +315,4 @@
 <script src="../js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+h
