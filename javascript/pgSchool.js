@@ -7,45 +7,102 @@ let selectedSub = ""
 let selected = false;
 let selectedButton = null;
 let addedSubjects;
+let areAdded = false;
+let removeSelected;
+
+
+const handleClick = (e)=>{
+    if(!selected){
+        remove.style.display = 'none';
+        e.target.style.background = 'red'
+        selected = true
+        selectedButton = e.target;
+        add.style.display = 'block'
+    }
+    else{
+        selectedButton.style.background = 'white'
+        selectedButton = null;
+        selected = false
+        add.style.display = 'none'
+    }
+}
+
 
 function changeBg(){
     subjects.forEach(subject =>{
-        subject.addEventListener('click', ()=>{
-            if(!selected){
-                subject.style.background = 'red'
-                selected = true
-                selectedButton = subject;
-                add.style.display = 'block'
-            }
-            else{
-                selectedButton.style.background = 'white'
-                selectedButton = null;
-                selected = false
-                add.style.display = 'none'
-            }
-        })
+        subject.addEventListener('click', handleClick)
     })
 }
 changeBg()
 
 add.addEventListener('click', ()=>{
-    selected = false
-    added.appendChild(selectedButton)
-    selectedButton.classList.add('addedSubjects')
-    selectedButton.classList.remove('subject')
-    addedSubjects = document.querySelectorAll('.addedSubjects')
-    // removeBtn()
+    if (unadded.children.length > 0){
+        unadded.removeChild(selectedButton)
+        selected = false
+        let newBtn = document.createElement('button')
+        newBtn.textContent = selectedButton.textContent
+        added.appendChild(newBtn)
+        selectedButton.style.display = 'none'
+        add.style.display = 'none'
+        newBtn.classList.add('selectedSubjects')
+        addedSubjects = document.querySelectorAll('.selectedSubjects')
+        areAdded = true
+        console.log(unadded.children.length)
+        checkAdded()
+    }
 })
 
-function removeBtn(){
-    addedSubjects.forEach(added =>{
-        added.addEventListener('click', ()=>{
-            added.style.background = 'red'
+function checkAdded(){
+    if(areAdded){
+        addedSubjects.forEach(addedSubject =>{
+            addedSubject.addEventListener('click', ()=>{
+                remove.style.display = 'block'
+                removeSelected = addedSubject
+            })
         })
-    })
+    }
 }
 
-removeBtn()
+function removeSubject(){
+    if (removeSelected){
+        selected = false
+        let tet = removeSelected.textContent
+        // added.removeChild(removeSelected)
+        checkAdded()
+        removeSelected.style.display = 'none'
+        let newBtn = document.createElement('button')
+        newBtn.textContent = tet
+        newBtn.classList.add('subject')
+        newBtn.onclick = (e) => handleClick(e)
+        // subjects = document.querySelectorAll('.subject')
+        added.removeChild(removeSelected)
+        unadded.insertBefore(newBtn, unadded.firstChild)
+        remove.style.display = 'none'
+        removeSelected.remove();
+        removeSelected = null
+        // added.childNodes.forEach(child =>{
+        //     if (child === newBtn){
+        //         added.removeChild(newBtn)
+        //     }
+        // })
+    }
+}
+
+remove.addEventListener('click', removeSubject)
+
+
+
+console.log(unadded.children.length)
+
+// function removeBtn(){
+//     addedSubjects.forEach(added =>{
+//         added.addEventListener('click', ()=>{
+//             added.style.background = 'red'
+//         })
+//     })
+// }
+//
+// removeBtn()
 
 // subjects.forEach(sub => {
 //     sub.addEventListener('click', () => {

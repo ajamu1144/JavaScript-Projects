@@ -125,6 +125,7 @@
     let addReminder = document.getElementById('add');
     let removeReminder = document.getElementById('removeReminder');
     let tableBody = document.getElementById('tableBody');
+    let obj;
     newReminderInitial.addEventListener('click', () => {
         mainReminderInterface.style.display = 'block'
         removeReminder.style.display = 'block'
@@ -158,18 +159,17 @@
         let minutesText = document.createTextNode(minutes.toString())
         let secondsText = document.createTextNode(seconds.toString())
         console.log(`${days}:${hours}:${minutes}:${seconds}`);
-        let object = {
+        obj = {
             days : days,
             hours : hours,
-            minute : minutes,
+            minutes : minutes,
             seconds : seconds
         }
-        console.log(object)
-        return object;
+        return obj
     }
 
     function appendElements() {
-        createTr().appendChild(calculateValues());
+        createTr().appendChild(calculateValues);
     }
 
     calculateValues()
@@ -185,10 +185,11 @@
         let hourSpan = document.createElement('span');
         let minuteSpan = document.createElement('span');
         let secondSpan = document.createElement('span');
-        daySpan.appendChild(daysText);
-        hourSpan.appendChild(hoursTet);
-        minuteSpan.appendChild(minutesText);
-        secondSpan.appendChild(secondsText);
+        let {days, hours, minutes, seconds} = calculateValues()
+        // daySpan.appendChild(daysText);
+        // hourSpan.appendChild(hoursTet);
+        // minuteSpan.appendChild(minutesText);
+        // secondSpan.appendChild(secondsText);
         tableRowCountDownDetail.appendChild(daySpan);
         tableRowCountDownDetail.appendChild(hourSpan);
         tableRowCountDownDetail.appendChild(minuteSpan);
@@ -202,6 +203,7 @@
         tableRow.appendChild(tableRowBirthDetail);
         tableRow.appendChild(tableRowCountDownDetail);
         tableBody.appendChild(tableRow);
+        console.log(days)
     }
 
 
