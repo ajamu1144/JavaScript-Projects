@@ -5,8 +5,40 @@
     <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Hotel</title>
+    <link rel="stylesheet" href="../hotel.css">
 </head>
-<body>
-
+<body class="flex flex-col justify-center items-center p-10">
+    <div id="chooseHotel" class="bg-white !p-10 rounded-xl flex flex-col ">
+        <h1 class="text-center font-black text-3xl text-blue-500">Welcome to LIPAN Hotel's and Suit's</h1>
+        <br> <br>
+        <h2 class="text-blue-500 font-semibold opacity-50 text-[20px]">Book A Hotel</h2> <br>
+        <form class="flex flex-col">
+            <div class="flex flex-col">
+                <label for="name">Enter your Name</label> <br>
+                <input type="text" id="name" class="border-[1.5px] w-[30vw] p-2 rounded border-[#33333343] outline-none text-red-5 transition-all duration-[0.3s] focus:ring-2 focus:ring-blue-400 focus:border-none">
+                <br>
+                <label for="hotelType">Enter your Preferred Hotel Suite</label> <br>
+                <select id='hotelType' class="border-[1.2px] border-[#33333333] !p-3 transition-all duration-[0.3s] rounded outline-none transition-all duration-[0.3s] focus:ring-2 focus:ring-blue-400 focus:border-none">
+                    <option value="free">Free Hotel Accommodation</option>
+                    <option value="silver">Silver Hotel Accommodation - ₦20000 per night</option>
+                    <option value="golden">Golden Hotel Accommodation - ₦60000 per night</option>
+                    <option value="ruby">Ruby Hotel Accommodation - ₦130000 per night</option>
+                    <option value="platinum">Platinum Hotel Accommodation - ₦200000 per night</option>
+                    <option value="diamond">Diamond Hotel Accommodation - ₦5000000 per night</option>
+                </select> <br>
+                <label for="date">How long will you stay with us</label> <br>
+                <input type="date" name="" id="date" class="border-[1.2px] p-[10px] pr-10 rounded border-[#33333333] transition-all duration-[0.3s] focus:ring-2 focus:ring-blue-400 focus:border-none focus:outline-none">
+            </div>
+            <br> <br>
+            <button id="bookBtn" class="bg-blue-500 self-center text-white p-3 rounded transition-all duration-[0.5s] hover:scale-120 active:bg-blue-900">Book Hotel</button>
+        </form>
+    </div>
+    <div id="confirm" class="bg-white !p-10 rounded-xl flex flex-col">
+        <div class="bg-red-500 p-10">
+                <h1 class="text-2xl font-bold backdrop-blur-2xl" >Thank you Namue Usdjsj for choosing LIPAN Hotel and suites</h1>
+            </div>
+    </div>
+    <script src="../tailwind.js"></script>
+    <script src="../javascript/hotel.js"></script>
 </body>
 </html>
