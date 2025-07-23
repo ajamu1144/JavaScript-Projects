@@ -32,6 +32,7 @@ bookBtn.addEventListener("click", function(e){
             name.classList.remove('ring-red-500')
         }
         console.log("clicked");
+        console.log("clicked");
         nameError.style.display = "none";
         console.log(hotelType.value);
         chooseHotelPage.style.display = "none";
