@@ -8,35 +8,84 @@
     <link rel="stylesheet" href="../hotel.css">
 </head>
 <body class="flex flex-col justify-center items-center p-10">
-    <div id="chooseHotel" class="bg-white !p-10 rounded-xl flex flex-col ">
+    <div id="chooseHotel" class="bg-white !p-10 rounded-xl flex flex-col w-[90vw]">
         <h1 class="text-center font-black text-3xl text-blue-500">Welcome to LIPAN Hotel's and Suit's</h1>
         <br> <br>
         <h2 class="text-blue-500 font-semibold opacity-50 text-[20px]">Book A Hotel</h2> <br>
         <form class="flex flex-col">
             <div class="flex flex-col">
                 <label for="name">Enter your Name</label> <br>
-                <input type="text" id="name" class="border-[1.5px] w-[30vw] p-2 rounded border-[#33333343] outline-none text-red-5 transition-all duration-[0.3s] focus:ring-2 focus:ring-blue-400 focus:border-none">
+                <input type="text" id="name" class="border-[1.5px] w-[80%] p-2 rounded border-[#33333343] outline-none text-red-5 transition-all duration-[0.3s] focus:ring-2 focus:ring-blue-400 focus:border-none">
+                <br>
+                <p class="text-red-500 font-bold animate-bounce" id="nameError">Enter a valid name not more than 20 characters</p>
                 <br>
                 <label for="hotelType">Enter your Preferred Hotel Suite</label> <br>
                 <select id='hotelType' class="border-[1.2px] border-[#33333333] !p-3 transition-all duration-[0.3s] rounded outline-none transition-all duration-[0.3s] focus:ring-2 focus:ring-blue-400 focus:border-none">
-                    <option value="free">Free Hotel Accommodation</option>
-                    <option value="silver">Silver Hotel Accommodation - ₦20000 per night</option>
+                    <option value="free" >Free Hotel Accommodation</option>
+                    <option value="silver" >Silver Hotel Accommodation - ₦20000 per night</option>
                     <option value="golden">Golden Hotel Accommodation - ₦60000 per night</option>
                     <option value="ruby">Ruby Hotel Accommodation - ₦130000 per night</option>
                     <option value="platinum">Platinum Hotel Accommodation - ₦200000 per night</option>
                     <option value="diamond">Diamond Hotel Accommodation - ₦5000000 per night</option>
                 </select> <br>
-                <label for="date">How long will you stay with us</label> <br>
-                <input type="date" name="" id="date" class="border-[1.2px] p-[10px] pr-10 rounded border-[#33333333] transition-all duration-[0.3s] focus:ring-2 focus:ring-blue-400 focus:border-none focus:outline-none">
+<!--                <label for="checkIn">When will you be coming to staying with us</label> <br>-->
+<!--                <input type="date" id="checkIn" class="border-[1.2px] p-[10px] pr-10 rounded border-[#33333333] transition-all duration-[0.3s] focus:ring-2 focus:ring-blue-400 focus:border-none focus:outline-none">-->
+<!--&lt;!&ndash;                <p class="text-red-500 font-bold animate-bounce" id="checkInError">Enter a valid name not more than 20 characters</p>&ndash;&gt;-->
+<!--                <br>-->
+<!--                <p class="text-red-500 font-bold animate-bounce" id="checkInError">Enter when you will be staying with us</p>-->
+<!--                <br>-->
+                <label for="checkOut">When will you be leaving us</label> <br>
+                <input type="date" id="checkOut" class="border-[1.2px] p-[10px] pr-10 rounded border-[#33333333] transition-all duration-[0.3s] focus:ring-2 focus:ring-blue-400 focus:border-none focus:outline-none">
+                <br>
+                <p class="text-red-500 font-bold animate-bounce checkInError" id="checkOutError">Enter when you will be leaving us</p>
             </div>
             <br> <br>
             <button id="bookBtn" class="bg-blue-500 self-center text-white p-3 rounded transition-all duration-[0.5s] hover:scale-120 active:bg-blue-900">Book Hotel</button>
         </form>
     </div>
-    <div id="confirm" class="bg-white !p-10 rounded-xl flex flex-col">
-        <div class="bg-red-500 p-10">
-                <h1 class="text-2xl font-bold backdrop-blur-2xl" >Thank you Namue Usdjsj for choosing LIPAN Hotel and suites</h1>
+    <br>
+    <div id="paidConfirm" class="bg-white !p-10 rounded-xl flex flex-col w-[90vw]">
+        <div class="bg-blue-500/12 border-1 border-blue-500 backdrop-filter rounded-xl p-10 ">
+                <h1 class="text-2xl font-bold text-blue-500 text-center" >Thank you <b class="text-3xl font-bold name">Namue Usdjsj</b> for choosing LIPAN <span id="type"></span> Hotel and suites</h1>
+        </div>
+        <br>
+        <div class="flex flex-col shadow-sm p-5 rounded">
+            <p class="text-[1em] "><b>Check In: </b>  You will be checking in on the 7th of July, 2025</p>
+            <br>
+            <p class="text-[1em] "><b>Check Out: </b> You will be checking out on the 7th of July, 2025</p>
+            <br>
+            <div class="flex flex-row justify-center ">
+                <button class="mr-5 confirm p-3 text-white rounded self-center bg-blue-500 transition-all duration-[0.3s] hover:scale-[1.2] active:bg-blue-600">Confirm Booking</button>
+                <button class="edit p-3 text-white rounded self-center bg-blue-500 transition-all duration-[0.3s] hover:scale-[1.2] active:bg-blue-600">Edit Booking</button>
             </div>
+        </div>
+    </div>
+    <br>
+    <div id="freeConfirm" class="bg-white !p-10 rounded-xl flex flex-col w-[90vw]">
+        <div class="bg-blue-500/12 border-1 border-blue-500 backdrop-filter rounded-xl p-10 flex flex-col justify-between">
+                <h1 class="text-[2rem] font-bold text-blue-500 text-center" >Thank you <b class="text-3xl font-bold name"></b> for choosing LIPAN free Hotel and suites</h1>
+        </div>
+        <br>
+        <div class="flex flex-col shadow-sm p-5 rounded">
+            <p class="text-[1em] "><b>Check In: </b>  You will be checking in on the 7th of July, 2025</p>
+            <br>
+            <p class="text-[1em] "><b>Check Out: </b> You will be checking out on the 7th of July, 2025</p>
+            <br>
+            <div class="flex flex-row justify-center g-3">
+                <button class="mr-5 confirm p-3 text-white rounded self-center bg-blue-500 transition-all duration-[0.3s] hover:scale-[1.2] active:bg-blue-600">Confirm Booking</button>
+                <button class="edit p-3 text-white rounded self-center bg-blue-500 transition-all duration-[0.3s] hover:scale-[1.2] active:bg-blue-600">Edit Booking</button>
+            </div>
+        </div>
+        <br>
+    </div>
+
+    <div id="countdownPage" class="bg-white p-[3vw] rounded ">
+         <div class="bg-blue-500/15 backdrop-filter p-[3vw] border-1 border-blue-500">
+             <h1 class="text-[3vw] font-bold text-blue-500 text-center">Dear <b class="packName"></b>, you will need to pack and leave your <span class="packSuite"></span> room in the next</h1>
+             <br> <br>
+             <h1 class="timer text-center font-black text-[6vw]" style="font-family: Consolas,sans-serif"></h1>
+         </div>
+
     </div>
     <script src="../tailwind.js"></script>
     <script src="../javascript/hotel.js"></script>

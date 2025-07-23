@@ -2,6 +2,26 @@ body{
     background: #c2e3ff;
 }
 
+#nameError{
+    display: none;
+}
+
+#checkOutError{
+    display: none;
+}
+
+#checkInError{
+    display: none;
+}
+
+#paidConfirm, #freeConfirm{
+    display: none;
+}
+
+#countdownPage{
+    display: none;
+}
+
 /*.back{*/
 /*    backd*/
 /*}*/
