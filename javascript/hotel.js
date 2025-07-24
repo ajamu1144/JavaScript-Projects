@@ -10,21 +10,40 @@ const freeConfirm = document.getElementById('freeConfirm')
 const confirm = document.querySelectorAll('.confirm');
 const edit = document.querySelectorAll('.edit');
 const userNname = document.querySelectorAll('.name');
-const checkIn = document.getElementById('checkIn');
 const checkOut = document.getElementById('checkOut');
 const timer = document.querySelectorAll('.timer');
 const countdownPage = document.getElementById('countdownPage');
-let dur = new Date(checkOut.value).getTime() - new Date().getTime();
+let daysOriginal;
 
 function upperFirst(text){
     return text[0].toUpperCase() + text.slice(1);
 }
 
 bookBtn.addEventListener("click", function(e){
+    let selectedOption = hotelType.options[hotelType.selectedIndex];
+    let out = new Date(checkOut.value).getTime();
+    let now = new Date().getTime();
+    let dur = out - now;
     e.preventDefault();
     console.log(checkOut.value);
     console.log();
-    if(name.value.length > 0 && name.value.length < 20){
+    console.log(dur + ' that is the duration')
+    console.log(out + ' that is when we are leaving in milliseconds')
+    console.log(now + ' that is now in milliseconds')
+    if(name.value.length < 0 || name.value.length > 20 || name.value === ''){
+        freeConfirm.style.display = 'flex'
+        paidConfirm.style.display = 'none'
+        freeConfirm.querySelector('.name').textContent = name.value;
+    }
+    else if(dur <= 0){
+        checkOutError.style.display = 'flex'
+    }
+
+    else if(checkOut.value === ''){
+        checkOutError.style.display = 'flex'
+    }
+
+    else{
         e.preventDefault();
         name.classList.add('ring-[1.8px]')
         name.classList.add('ring-green-500')
@@ -41,6 +60,10 @@ bookBtn.addEventListener("click", function(e){
             freeConfirm.style.display = 'none'
             paidConfirm.querySelector('.name').textContent = upperFirst(name.value);
             paidConfirm.querySelector('#type').textContent = upperFirst(hotelType.value);
+            handleCount()
+            paidConfirm.querySelector('.price').textContent = `pay a total of ₦${selectedOption.dataset.price * Math.ceil(daysOriginal)} `;
+
+            // paidConfirm.querySelector('.price').textContent =
             // paidConfirm.querySelector('#type').background =
 
         }
@@ -55,18 +78,6 @@ bookBtn.addEventListener("click", function(e){
             freeConfirm.querySelector('.name').textContent = name.value;
         }
     }
-    // if(checkOut.value === ''){
-    //     checkInError.style.display = "block";
-    //     // checkOutError.style.display = "block";
-    // }
-
-    else{
-        e.preventDefault();
-        name.classList.add('ring-2')
-        name.classList.add('ring-red-500')
-        console.log("empty");
-        nameError.style.display = "block";
-    }
 
 })
 
@@ -78,17 +89,28 @@ edit.forEach(editBtn=>{
 })
 
 function handleCount(){
-    let timeOut = new Date(checkOut.value).getTime();
+    let finalText
+    let timeOut = new Date(checkOut.value);
+    console.log(timeOut)
     const now = new Date().getTime();
     const Duration = timeOut - now;
     console.log(Duration)
-    let days = (Math.floor(Duration /(1000*60*60*24))).toString().padStart(2, "0");
-    let hours = (Math.floor((Duration /(1000*60*60)%24))).toString().padStart(2, "0");
-    let minutes = (Math.floor((Duration/1000/60)%60)).toString().padStart(2, "0");
-    let seconds = (Math.floor((Duration/1000)%60)).toString().padStart(2, "0");
-    console.log(`${days}d : ${hours}h : ${minutes}m : ${seconds}s`)
-    return `${days}d : ${hours}h : ${minutes}m : ${seconds}s`
+    daysOriginal = Duration /(1000*60*60*24);
+    if (Duration <= 0){
+        finalText = `Dear ${name.value}, kindly vacate the room`
+    }
+    else{
+        let days = (Math.floor(Duration /(1000*60*60*24))).toString().padStart(2, "0");
+        let hours = (Math.floor((Duration /(1000*60*60)%24))).toString().padStart(2, "0");
+        let minutes = (Math.floor((Duration/1000/60)%60)).toString().padStart(2, "0");
+        let seconds = (Math.floor((Duration/1000)%60)).toString().padStart(2, "0");
+        finalText = `${days}d : ${hours}h : ${minutes}m : ${seconds}s`
+    }
+    console.log(finalText)
+
+    return finalText
 }
+
 
 confirm.forEach(confirmBtn =>{
     confirmBtn.addEventListener('click', function(){
@@ -97,7 +119,22 @@ confirm.forEach(confirmBtn =>{
         countdownPage.querySelector('.packName').textContent = upperFirst(name.value);
         countdownPage.querySelector('.packSuite').textContent = hotelType.value !== 'free' ? `${upperFirst(hotelType.value)} suit` : upperFirst(hotelType.value);
         setInterval(function(){
+            // if({days} === handleCount()){
+            //
+            // }
             document.querySelector('.timer').textContent = handleCount()
+            let dates = "01d:22hr:15mns:10secs";
+            let arrayDates = dates.split(":")
+            let daysArray = []
+            arrayDates.forEach((day) => {
+                let newDay = day.slice(0, 2)
+                daysArray.push(newDay)
+                console.log(newDay)
+                console.log(daysArray)
+            })
+
+            console.log()
+
         }, 1000)
     })
 })

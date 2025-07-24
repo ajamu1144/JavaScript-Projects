@@ -8,6 +8,7 @@
     <title>Birthday Countdown</title>
     <script src="../tailwind.js"></script>
     <style>
+
         body{
             display: flex;
             justify-content: center;
@@ -107,7 +108,7 @@
 <!--            <button class="pl-10 pr-10 p-2">Edit</button>-->
         </div>
     </div>
-    <div id="mainDiv" class="p-[100px] shadow-md rounded  border-t-2 border-t-[#33333320] w-[755px] m-[2rem auto] p-[1rem] bg-[#fff] ">
+    <div id="mainDiv" class="p-[100px] shadow-md rounded border-t-2 border-t-[#33333320] w-[755px] m-[2rem auto] p-[1rem] bg-[#fff] ">
         <label for="userName">Name</label> <br>
         <input type="text" name="" id="userName" placeholder="Enter Recipient Name">
         <p class="text-red-400" id="errorCode">Enter A Valid Name</p><br> <br>
@@ -141,38 +142,32 @@
 
     function createTr(trElement) {
         trElement = document.createElement('tr')
-        return trElement;
     }
 
 
-    function calculateValues() {
-        let now = new Date();
-        let futureDate = new Date(dateSelector.value);
-        const timeDifferenceMs = futureDate - now;
-        console.log(timeDifferenceMs);
-        const days = Math.floor(timeDifferenceMs /(1000*60*60*24));
-        const hours = Math.floor((timeDifferenceMs /(1000*60*60)%24));
-        const minutes = Math.floor((timeDifferenceMs/1000*60)%60);
-        const seconds = Math.floor((timeDifferenceMs/1000)%60);
-        let daysText = document.createTextNode(days.toString())
-        let hoursTet = document.createTextNode(hours.toString())
-        let minutesText = document.createTextNode(minutes.toString())
-        let secondsText = document.createTextNode(seconds.toString())
-        console.log(`${days}:${hours}:${minutes}:${seconds}`);
-        obj = {
-            days : days,
-            hours : hours,
-            minutes : minutes,
-            seconds : seconds
-        }
-        return obj
+    function handleCount(){
+        let finalText
+        let timeOut = new Date(dateSelector.value);
+        console.log(timeOut)
+        const now = new Date().getTime();
+        const Duration = timeOut - now;
+        console.log(Duration)
+        daysOriginal = Duration /(1000*60*60*24);
+        let days = (Math.floor(Duration /(1000*60*60*24))).toString().padStart(2, "0");
+        let hours = (Math.floor((Duration /(1000*60*60)%24))).toString().padStart(2, "0");
+        let minutes = (Math.floor((Duration/1000/60)%60)).toString().padStart(2, "0");
+        let seconds = (Math.floor((Duration/1000)%60)).toString().padStart(2, "0");
+        finalText = `${days}d : ${hours}h : ${minutes}m : ${seconds}s`
+        console.log(finalText)
+
+        return finalText
     }
 
     function appendElements() {
-        createTr().appendChild(calculateValues);
+        createTr().appendChild(handleCount);
     }
 
-    calculateValues()
+    handleCount()
     function main(){
         let userName = document.getElementById('userName');
         let tableRow = document.createElement('tr');
@@ -182,28 +177,25 @@
         let nameValue = document.createTextNode(userName.value);
         let birthDay = document.createTextNode(dateSelector.value);
         let daySpan = document.createElement('span');
+        daySpan.classList.add('daySpan')
         let hourSpan = document.createElement('span');
         let minuteSpan = document.createElement('span');
         let secondSpan = document.createElement('span');
-        let {days, hours, minutes, seconds} = calculateValues()
-        // daySpan.appendChild(daysText);
-        // hourSpan.appendChild(hoursTet);
-        // minuteSpan.appendChild(minutesText);
-        // secondSpan.appendChild(secondsText);
+        // let {finalText} = handleCount()
+
         tableRowCountDownDetail.appendChild(daySpan);
         tableRowCountDownDetail.appendChild(hourSpan);
         tableRowCountDownDetail.appendChild(minuteSpan);
         tableRowCountDownDetail.appendChild(secondSpan);
-        daySpan.textContent +=" : "
-        hourSpan.textContent +=" : "
-        minuteSpan.textContent +=" : "
+        daySpan.textContent += `${handleCount().slice(0, 2)} : `
+        // hourSpan.textContent +=`${hours} : `
+        // minuteSpan.textContent +=`${minutes} : `
         tableRowNameDetail.appendChild(nameValue);
         tableRowBirthDetail.appendChild(birthDay);
         tableRow.appendChild(tableRowNameDetail);
         tableRow.appendChild(tableRowBirthDetail);
         tableRow.appendChild(tableRowCountDownDetail);
         tableBody.appendChild(tableRow);
-        console.log(days)
     }
 
 
