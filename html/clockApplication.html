@@ -6,6 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
   <style>
     body{
       display: flex;
@@ -14,6 +15,8 @@
       gap: 10px;
       font-family: sans-serif;
       text-align: center;
+      background: linear-gradient(to right, #0a53be, #0d6efd, #0dcaf0, #0a58ca);
+      color: white;
     }
     h1{
       font-size: 15vw;
@@ -25,6 +28,51 @@
   </style>
 </head>
 <body>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">Assignment</a>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="../index.html">Documentation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="object.html">About Me</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="clockApplication.html">Day Event</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="jsass3.html">Multi Calculators</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="game.html">Guess my Number </a>
+                </li>
+                <li>
+                    <a class="nav-link" href="class 2.html">Primes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="name.html">Name Form Validation</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="Hotel.html">Lipan Hotel App</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="uber.html">Uber App</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="pgSchool.html">PG School</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="nos2.html">Data Types Methods</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
   <h1 id="clock">
 
   </h1>
@@ -40,6 +88,34 @@
   let second = document.getElementById('second');
   let days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
   let months = ["January", "February", 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  let event;
+  function getEvent(day){
+      switch (day){
+          case 'Sun':
+              event = 'Go to Church';
+              break;
+          case 'Mon':
+              event = 'Go to Work';
+              break;
+          case 'Tue':
+              event = 'Go to Work';
+              break;
+          case 'Wed':
+              event = 'Go to Work';
+              break;
+          case 'Thu':
+              event = 'Go to Work';
+              break;
+          case 'Fri':
+              event = 'Go to Mosque';
+              break;
+          case 'Sat':
+              event = 'Let\'s go party';
+              break;
+      }
+      return event;
+  }
+
   let date = document.getElementById('date');
   let month = document.getElementById('month');
   let day = document.getElementById('day');
@@ -48,8 +124,9 @@
     let now = new Date()
      mainH1.textContent = `${now.getHours().toString().padStart(2, "0")} :
      ${now.getMinutes().toString().padStart(2, "0")}  : ${now.getSeconds().toString().padStart(2, "0")}`
-      date.textContent = `${days[now.getDay()]}, ${now.getDate()} ${months[now.getMonth()]}`
+      date.textContent = `Today is ${days[now.getDay()]}, ${now.getDate()} ${months[now.getMonth()]}, ${getEvent(days[now.getDay()])}`
     }, 1000)
 </script>
+<script src="../js/bootstrap.min.js"></script>
 </body>
 </html>

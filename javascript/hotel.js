@@ -13,13 +13,21 @@ const userNname = document.querySelectorAll('.name');
 const checkOut = document.getElementById('checkOut');
 const timer = document.querySelectorAll('.timer');
 const countdownPage = document.getElementById('countdownPage');
+const thatDay = document.getElementById('thatDay')
+const todaySpan = document.getElementById('todaySpan');
 let daysOriginal;
+let stuffButton = document.getElementById('stuffButton');
+let linksStuff = document.querySelector('.linksStuff')
 
 function upperFirst(text){
     return text[0].toUpperCase() + text.slice(1);
 }
 
 bookBtn.addEventListener("click", function(e){
+    console.log(checkOut.value)
+    console.log(typeof checkOut.value)
+    console.log(Number(checkOut.value))
+    console.log(new Date(checkOut.value))
     let selectedOption = hotelType.options[hotelType.selectedIndex];
     let out = new Date(checkOut.value).getTime();
     let now = new Date().getTime();
@@ -30,20 +38,23 @@ bookBtn.addEventListener("click", function(e){
     console.log(dur + ' that is the duration')
     console.log(out + ' that is when we are leaving in milliseconds')
     console.log(now + ' that is now in milliseconds')
-    if(name.value.length < 0 || name.value.length > 20 || name.value === ''){
-        freeConfirm.style.display = 'flex'
-        paidConfirm.style.display = 'none'
-        freeConfirm.querySelector('.name').textContent = name.value;
+    if(name.value === ''){
+    // if(name.value.length < 0 || name.value.length > 20 || name.value === ''){
+        nameError.style.display = 'flex'
     }
+
+    else if(isNaN(new Date(checkOut.value))){
+    // else if(isNaN(new Date(checkOut.value))){
+        checkOutError.style.display = 'flex'
+    }
+
     else if(dur <= 0){
         checkOutError.style.display = 'flex'
     }
 
-    else if(checkOut.value === ''){
-        checkOutError.style.display = 'flex'
-    }
 
     else{
+        console.log(checkOut.value)
         e.preventDefault();
         name.classList.add('ring-[1.8px]')
         name.classList.add('ring-green-500')
@@ -62,7 +73,8 @@ bookBtn.addEventListener("click", function(e){
             paidConfirm.querySelector('#type').textContent = upperFirst(hotelType.value);
             handleCount()
             paidConfirm.querySelector('.price').textContent = `pay a total of ₦${selectedOption.dataset.price * Math.ceil(daysOriginal)} `;
-
+            todaySpan.textContent = `${new Date()} `;
+            thatDay.textContent = new Date(checkOut.value)
             // paidConfirm.querySelector('.price').textContent =
             // paidConfirm.querySelector('#type').background =
 
@@ -76,6 +88,8 @@ bookBtn.addEventListener("click", function(e){
             freeConfirm.style.display = 'flex'
             paidConfirm.style.display = 'none'
             freeConfirm.querySelector('.name').textContent = name.value;
+            freeConfirm.querySelector('.checkIn').textContent = new Date()
+            freeConfirm.querySelector('.checkOut').textContent = new Date(checkOut.value)
         }
     }
 

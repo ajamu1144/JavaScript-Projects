@@ -1,10 +1,10 @@
 *{
-    margin: 0;
     box-sizing: border-box;
 }
 body{
     padding: 0;
-    background: #c2e3ff;
+    /*background: rgba(161, 238, 255, 0.83);*/
+    background: rgba(194, 227, 255, 0.62) !important;
 }
 
 #nameError{
@@ -21,6 +21,7 @@ body{
 
 #paidConfirm, #freeConfirm{
     display: none;
+    
 }
 
 #countdownPage{
@@ -30,3 +31,35 @@ body{
 /*.back{*/
 /*    backd*/
 /*}*/
+
+.linksStuff{
+}
+
+@media (max-width: 675px) {
+    .linksStuff{
+        display: none;
+    }
+}
+
+@keyframes come {
+    0%{
+        transform: translateY(0%);
+    }
+    100%{
+        transform: translateY(10px);
+    }
+}
+.container-fluid{
+    animation-duration: 3s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-out;
+}
+
+@media (max-width: 1000px) {
+    #navbarTogglerDemo03{
+        display: none;
+    }
+}
+
+.text-decoration-none{
+}

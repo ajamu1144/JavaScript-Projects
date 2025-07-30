@@ -6,53 +6,73 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Hotel</title>
     <link rel="stylesheet" href="../hotel.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
 </head>
 <body class="flex flex-col justify-center items-center p-10">
 
-<nav class="flex flex-row bg-white w-[100%] p-10">
-    <ul class="block xl:flex gap-10">
-        <li>
-            <p class="w-[200px] font-bold text-[20px] ">Ajamu Emmanuel</p>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="../index.html">Documentation</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="object.html">About Me</a>
-        </li>
-        <li>
-            <a class="nav-link" href="class%202.html">Primes</a>
-        </li>
 
-        <li class="nav-item">
-            <a class="nav-link" href="jsass3.html">Multi Calculators</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="game.html">Guess my Number </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="name.html">Name Form Validation</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="uber.html">Uber App</a>
-        </li>
-    </ul>
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary w-[100%]">
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" id="showBtn">
+<!--        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">-->
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">Assignment</a>
+        <div class="navbar-collapse" id="navbarTogglerDemo03">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 flex gap-4 ">
+                <li class="text-black text-decoration-none">
+                    <a class="text-black text-decoration-none" href="../index.html">Documentation</a>
+                </li>
+                <li class="text-black text-decoration-none">
+                    <a class="text-black text-decoration-none" href="object.html">About Me</a>
+                </li>
+                <li>
+                    <a class="text-black text-decoration-none" href="clockApplication.html">Day Event</a>
+                </li>
+                <li class="text-black text-decoration-none">
+                    <a class="text-black text-decoration-none text-decoration-none" href="jsass3.html">Multi Calculators</a>
+                </li>
+                <li class="text-black text-decoration-none">
+                    <a class="text-black text-decoration-none" href="game.html">Guess my Number </a>
+                </li>
+                <li>
+                    <a class="text-black text-decoration-none" href="class 2.html">Primes</a>
+                </li>
+                <li class="text-black text-decoration-none">
+                    <a class="text-black text-decoration-none" href="name.html">Name Form Validation</a>
+                </li>
+                <li>
+                    <a class="text-black text-decoration-none" href="Hotel.html">Lipan Hotel App</a>
+                </li>
+                <li class="text-black text-decoration-none">
+                    <a class="text-black text-decoration-none" href="uber.html">Uber App</a>
+                </li>
+                <li>
+                    <a class="text-black text-decoration-none" href="pgSchool.html">PG School</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="nos2.html">Data Types Methods</a>
+                </li>
+            </ul>
+        </div>
+    </div>
 </nav>
 <br>
 
-    <div id="chooseHotel" class="bg-white !p-10 rounded-xl flex flex-col w-[90vw]">
-        <h1 class="text-center font-black text-3xl text-blue-500">Welcome to LIPAN Hotel's and Suit's</h1>
+    <div id="chooseHotel" class="!bg-white !p-10 !rounded-xl !flex !flex-col !w-[90vw]">
+        <h1 class="!text-center !font-black !text-3xl !text-blue-500">Welcome to LIPAN Hotel's and Suit's</h1>
         <br> <br>
-        <h2 class="text-blue-500 font-semibold  opacity-50 text-[20px]">Book A Hotel</h2> <br>
-        <form class="flex flex-col">
-            <div class="flex flex-col">
+        <h2 class="!text-blue-500 !font-semibold  !opacity-50 !text-[20px]">Book A Hotel</h2> <br>
+        <form class="!flex !flex-col">
+            <div class="!flex !flex-col">
                 <label for="name">Enter your Name</label> <br>
-                <input type="text" id="name" class="border-[1.5px] w-[80%] p-2 rounded border-[#33333343] outline-none text-red-5 transition-all duration-[0.3s] focus:ring-2 focus:ring-blue-400 focus:border-none">
+                <input type="text" id="name" class="!border-[1.5px] !w-[80%] !p-2 rounded !border-[#33333343] !outline-none !text-red-5 !transition-all !duration-[0.3s] !focus:ring-2 !focus:ring-blue-400 !focus:border-none">
                 <br>
-                <p class="text-red-500 font-bold animate-bounce" id="nameError">Enter a valid name not more than 20 characters</p>
+                <p class="!text-red-500 !font-bold !animate-bounce" id="nameError">Enter a valid name not more than 20 characters</p>
                 <br>
                 <label for="hotelType">Enter your Preferred Hotel Suite</label> <br>
-                <select id='hotelType' class="border-[1.2px] border-[#33333333] !p-3 transition-all duration-[0.3s] rounded outline-none transition-all duration-[0.3s] focus:ring-2 focus:ring-blue-400 focus:border-none">
+                <select id='hotelType' class="!border-[1.2px] !border-[#33333333] !p-3 transition-all !duration-[0.3s] !rounded !outline-none !focus:ring-2 !focus:ring-blue-400 !focus:border-none">
                     <option value="free" >Free Hotel Accommodation</option>
                     <option value="silver" data-price="20000" class="20000">Silver Hotel Accommodation - ₦20000 per night</option>
                     <option value="golden" data-price="60000" class="60000">Golden Hotel Accommodation - ₦60000 per night</option>
@@ -72,15 +92,15 @@
     <br>
     <div id="paidConfirm" class="bg-white !p-10 rounded-xl flex flex-col w-[90vw]">
         <div class="bg-blue-500/12 border-1 border-blue-500 backdrop-filter rounded-xl p-10 ">
-                <h1 class="text-2xl font-bold text-blue-500 text-center" >Thank you <b class="text-3xl font-bold name">Namue Usdjsj</b> for choosing LIPAN <span id="type"></span> Hotel and suites, you will <span class="price"></span></h1>
+                <h1 class="text-[2vw] font-bold text-blue-500 text-center" >Thank you <b class="text-[4vw] font-bold name"></b> for choosing LIPAN <span id="type"></span> Hotel and suites, you will <span class="price"></span></h1>
         </div>
         <br>
         <div class="flex flex-col shadow-sm p-5 rounded">
-            <p class="text-[1em] "><b>Check In: </b>  You checked in on </p>
+            <p class="text-[1em] "><b>Check In: </b>  You checked in on <span id="todaySpan"></span></p>
             <br>
-            <p class="text-[1em] "><b>Check Out: </b> You will be checking out on the 7th of July 2025</p>
+            <p class="text-[1em] "><b>Check Out: </b> You will be checking out on the <span id="thatDay"></span></p>
             <br>
-            <div class="flex flex-row justify-center gap-14">
+            <div class="flex flex-row justify-center gap-4">
                 <button class="mr-5 confirm p-3 text-white rounded self-center bg-blue-500 transition-all duration-[0.3s] hover:scale-[1.2] active:bg-blue-600">Confirm Booking</button>
                 <button class="edit p-3 text-white rounded self-center bg-blue-500 transition-all duration-[0.3s] hover:scale-[1.2] active:bg-blue-600">Edit Booking</button>
             </div>
@@ -93,9 +113,9 @@
         </div>
         <br>
         <div class="flex flex-col shadow-sm p-5 rounded">
-            <p class="text-[1em] "><b>Check In: </b>  You will be checking in on the 7th of July 2025</p>
+            <p class="text-[1em] "><b>Check In: </b>  You checked in on  <span class="checkIn"></span></p>
             <br>
-            <p class="text-[1em] "><b>Check Out: </b> You will be checking out on the 7th of July 2025</p>
+            <p class="text-[1em] "><b>Check Out: </b> You will be checking out <span class="checkOut"></span></p>
             <br>
             <div class="flex flex-row justify-center g-3">
                 <button class="mr-5 confirm p-3 text-white rounded self-center bg-blue-500 transition-all duration-[0.3s] hover:scale-[1.2] active:bg-blue-600">Confirm Booking</button>
@@ -113,6 +133,17 @@
          </div>
     </div>
     <script src="../tailwind.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
     <script src="../javascript/hotel.js"></script>
+    <script>
+        let showBtn = document.getElementById('showBtn')
+        let navbarTogglerDemo03 = document.getElementById('navbarTogglerDemo03')
+        let current = true
+        showBtn.addEventListener('click', function(){
+            console.log(navbarTogglerDemo03.style.display)
+            navbarTogglerDemo03.style.display = current ? 'block' : 'none'
+            current = !current
+        })
+    </script>
 </body>
 </html>

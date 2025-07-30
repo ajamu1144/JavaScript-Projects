@@ -7,6 +7,8 @@
     <title>All-in-One Calculators</title>
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <style>
+        *{
+        }
         body {
             font-family: 'Inter', sans-serif;
             background: linear-gradient(to right, #2d3748, #1a202c);
@@ -333,20 +335,31 @@
                     <a class="nav-link" href="object.html">About Me</a>
                 </li>
                 <li>
-                    <a class="nav-link" href="class 2.html">Primes</a>
+                    <a class="nav-link" href="clockApplication.html">Day Event</a>
                 </li>
-
                 <li class="nav-item">
                     <a class="nav-link" href="jsass3.html">Multi Calculators</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="game.html">Guess my Number </a>
                 </li>
+                <li>
+                    <a class="nav-link" href="class 2.html">Primes</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="name.html">Name Form Validation</a>
                 </li>
+                <li>
+                    <a class="nav-link" href="Hotel.html">Lipan Hotel App</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="uber.html">Uber App</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="pgSchool.html">PG School</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="nos2.html">Data Types Methods</a>
                 </li>
             </ul>
         </div>
@@ -449,28 +462,31 @@
     const stats = document.getElementById('stats')
     calculateBtn.addEventListener('click', function() {
         const birthYear = Number(birthYearInput.value);
+        const age = currentYear - birthYear;
+        const yearsToRetire = RETIRE_AGE - age;
         ageErrorDisplay.style.display = 'none';
 
-        if (isNaN(birthYear) || birthYearInput.value.trim() === '') {
+        if (isNaN(birthYear) || birthYearInput.value.trim() === '' || birthYearInput.value < 1) {
             ageErrorDisplay.style.display = 'block';
             ageErrorDisplay.textContent = 'Please enter a valid birth year.';
             retirementStatus.textContent = '';
         }
 
-        if (birthYear > currentYear) {
+        else if(birthYearInput.value.toString().includes('.')){
+            ageErrorDisplay.style.display = 'block';
+            ageErrorDisplay.textContent = 'Please enter a valid birth year.';
+            retirementStatus.textContent = '';
+        }
+
+        else if (birthYear > currentYear) {
             ageErrorDisplay.textContent = `You can't be born after ${currentYear}.`;
             ageErrorDisplay.style.display = 'block';
             retirementStatus.textContent = '';
         }
 
-        const age = currentYear - birthYear;
-        const yearsToRetire = RETIRE_AGE - age;
 
-        if (age < 0) {
-            retirementStatus.textContent = 'Please enter a valid birth year.';
-        }
         else if (age < 0) {
-            retirementStatus.textContent = "You are can't be born before year 0";
+            retirementStatus.textContent = 'Please enter a valid birth year.';
         }
         else if (yearsToRetire < 0) {
             stats.style.display = 'block'

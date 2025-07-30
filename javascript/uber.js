@@ -93,7 +93,7 @@ bookBtn.addEventListener("click", function () {
 startBtn.addEventListener("click", function () {
     startBtn.style.display = "none";
     pauseBtn.style.display = "block";
-    endBtn.style.display = "flex";
+    endBtn.style.display = "block";
     secAdder = 1;
     minAdder = 0;
     Adder = 0;
