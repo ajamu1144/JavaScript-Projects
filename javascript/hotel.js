@@ -65,8 +65,10 @@ bookBtn.addEventListener("click", function(e){
         console.log("clicked");
         nameError.style.display = "none";
         console.log(hotelType.value);
-        chooseHotelPage.style.display = "none";
+
         if (hotelType.value !== 'free'){
+            chooseHotelPage.classList.remove('!flex');
+            chooseHotelPage.classList.add('!hidden');
             paidConfirm.style.display = 'flex'
             freeConfirm.style.display = 'none'
             paidConfirm.querySelector('.name').textContent = upperFirst(name.value);
@@ -85,6 +87,8 @@ bookBtn.addEventListener("click", function(e){
         }
 
         else {
+            chooseHotelPage.classList.remove('!flex');
+            chooseHotelPage.classList.add('!hidden');
             freeConfirm.style.display = 'flex'
             paidConfirm.style.display = 'none'
             freeConfirm.querySelector('.name').textContent = name.value;
@@ -98,7 +102,8 @@ bookBtn.addEventListener("click", function(e){
 edit.forEach(editBtn=>{
     editBtn.addEventListener("click", function(){
         this.parentElement.parentElement.parentElement.style.display = "none";
-        chooseHotelPage.style.display = "flex";
+        chooseHotelPage.classList.remove('!hidden');
+        chooseHotelPage.classList.add('!flex');
     })
 })
 
